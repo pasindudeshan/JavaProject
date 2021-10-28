@@ -21,6 +21,11 @@ public class BusManagementSystem {
         MainScreen login = new MainScreen(); //Creating an object of a MainScreen class
         login.setLocationRelativeTo(null); //to set window location at the center of the screen
         login.setVisible(true); //when the programme run the MainScreen will be executed
+         
+        
+        NewUser user = new NewUser();
+        user.setLocationRelativeTo(null);
+        user.setVisible(true);
     }
     
 }

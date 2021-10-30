@@ -23,9 +23,9 @@ public class BusManagementSystem {
         login.setVisible(true); //when the programme run the MainScreen will be executed
          
         
-        NewUser user = new NewUser();
-        user.setLocationRelativeTo(null);
-        user.setVisible(true);
+
+        
+
     }
     
 }

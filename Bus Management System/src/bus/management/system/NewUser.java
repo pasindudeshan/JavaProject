@@ -7,8 +7,10 @@ package bus.management.system;
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -295,12 +297,13 @@ public class NewUser extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usernameF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dobF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(passwordF))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(passwordF, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dobF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -379,27 +382,51 @@ public class NewUser extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         //add button action
-        String name = nameF.getText(); // get the text from the nam
+     /*   String name = nameF.getText(); // get the text from the nam
         String dob = dobF.getText();
         String phoneNo = phoneNoF.getText();
         String position = positionF.getText();
         String address = addressF.getText();
         String username = usernameF.getText();
         char[] password = passwordF.getPassword();
-        
+        */
         try 
         {
             Class.forName("com.mysql.jdbc.Driver");
-            String databaseURL = "jdbc:mysql://localhost:3307/bus_management_system";
-            Connection con = (Connection) DriverManager.getConnection(databaseURL,"root", "1406");
+            //String databaseURL = "jdbc:mysql://localhost:3307/bus_management_system";
+          //  Connection con = (Connection) DriverManager.getConnection(databaseURL,"root", "");
             //Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/?user=root&password=rootpassword"); 
-            String insertQuery = "insert into User Values('null',"+phoneNo+"','"+address+"','"+dob+"','"+username+"','"+Arrays.toString(password)+"','"+position+"')";
-            Statement stat = con.createStatement();
-            int x = stat.executeUpdate(insertQuery);
-            System.out.print(x);
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","");
+         
+           //  String insertQuery = "insert into User Values('"+name+"',"+dob+"','"+null+"','"+phoneNo+"','"+position+"','"+address+"','"+username+"','"+Arrays.toString(password)+"','"+position+"')";
+           // Statement stat = con.createStatement();
+            //int x = stat.executeUpdate(insertQuery);
+            //System.out.print(x);
+            String sql = "insert into User values(?,?,?,?,?,?,?,?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1,nameF.getText());
+            pstmt.setString(2,dobF.getText());
+            String dept = null;
+            if(MaleB.isSelected())
+            {
+                dept = MaleB.getText();
+            }
+            if(FemaleB.isSelected())
+            {
+                dept = FemaleB.getText();
+            }
+            
+            pstmt.setString(3,dept);
+            pstmt.setInt(4,Integer.parseInt(phoneNoF.getText()));
+            pstmt.setString(5,positionF.getText());
+            pstmt.setString(6,addressF.getText());
+            pstmt.setString(7,usernameF.getText());
+            String pwd = new String(passwordF.getPassword());  // to get the input from  the password field
+            pstmt.setString(8,pwd);
+            JOptionPane.showMessageDialog(null, "isertion succesful");
         }
         catch(Exception e){
-            System.out.println(e);
+          JOptionPane.showMessageDialog(null, e);
         }
         
         

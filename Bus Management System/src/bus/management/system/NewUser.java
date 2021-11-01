@@ -9,8 +9,10 @@ import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.sql.*;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -34,6 +36,7 @@ public class NewUser extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         background = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -42,8 +45,6 @@ public class NewUser extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         nameF = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        dobF = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         MaleB = new javax.swing.JRadioButton();
         FemaleB = new javax.swing.JRadioButton();
@@ -63,6 +64,7 @@ public class NewUser extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         passwordF = new javax.swing.JPasswordField();
+        dobF = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("User ");
@@ -120,22 +122,16 @@ public class NewUser extends javax.swing.JFrame {
         jLabel4.setText("Date of Birth          :");
         jLabel4.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        dobF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dobFActionPerformed(evt);
-            }
-        });
-
-        jButton1.setText("jButton1");
-
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("Telephone No        :");
         jLabel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        buttonGroup1.add(MaleB);
         MaleB.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         MaleB.setText("Male");
 
+        buttonGroup1.add(FemaleB);
         FemaleB.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         FemaleB.setText("Female");
 
@@ -237,6 +233,8 @@ public class NewUser extends javax.swing.JFrame {
 
         passwordF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
+        dobF.setDateFormatString("yyyy-MM-dd");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -260,16 +258,13 @@ public class NewUser extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(nameF, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameF, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                        .addComponent(MaleB, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(83, 83, 83)
-                                        .addComponent(FemaleB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(dobF))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(MaleB, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(83, 83, 83)
+                                .addComponent(FemaleB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(43, 43, 43))
+                            .addComponent(dobF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -298,12 +293,13 @@ public class NewUser extends javax.swing.JFrame {
                     .addComponent(usernameF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(passwordF, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(dobF, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(dobF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -346,14 +342,14 @@ public class NewUser extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 136, Short.MAX_VALUE))
+                .addGap(0, 97, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 1154, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 1200, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -366,10 +362,6 @@ public class NewUser extends javax.swing.JFrame {
     private void nameFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameFActionPerformed
-
-    private void dobFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dobFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dobFActionPerformed
 
     private void phoneNoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNoFActionPerformed
         // TODO add your handling code here:
@@ -396,16 +388,16 @@ public class NewUser extends javax.swing.JFrame {
             //String databaseURL = "jdbc:mysql://localhost:3307/bus_management_system";
           //  Connection con = (Connection) DriverManager.getConnection(databaseURL,"root", "");
             //Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/?user=root&password=rootpassword"); 
-            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
            //  String insertQuery = "insert into User Values('"+name+"',"+dob+"','"+null+"','"+phoneNo+"','"+position+"','"+address+"','"+username+"','"+Arrays.toString(password)+"','"+position+"')";
            // Statement stat = con.createStatement();
             //int x = stat.executeUpdate(insertQuery);
             //System.out.print(x);
-            String sql = "insert into User values(?,?,?,?,?,?,?,?)";
+            String sql = "insert into user values(?,?,?,?,?,?,?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setString(1,nameF.getText());
-            pstmt.setString(2,dobF.getText());
+            pstmt.setString(2,((JTextField)dobF.getDateEditor().getUiComponent()).getText());
             String dept = null;
             if(MaleB.isSelected())
             {
@@ -423,6 +415,7 @@ public class NewUser extends javax.swing.JFrame {
             pstmt.setString(7,usernameF.getText());
             String pwd = new String(passwordF.getPassword());  // to get the input from  the password field
             pstmt.setString(8,pwd);
+            pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "isertion succesful");
         }
         catch(Exception e){
@@ -472,8 +465,8 @@ public class NewUser extends javax.swing.JFrame {
     private javax.swing.JRadioButton MaleB;
     private javax.swing.JTextArea addressF;
     private javax.swing.JPanel background;
-    private javax.swing.JTextField dobF;
-    private javax.swing.JButton jButton1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private com.toedter.calendar.JDateChooser dobF;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

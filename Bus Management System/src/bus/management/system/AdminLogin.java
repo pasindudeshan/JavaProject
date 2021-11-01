@@ -56,7 +56,7 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(255, 255, 102));
         jLabel1.setFont(new java.awt.Font("SansSerif", 3, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 51));
-        jLabel1.setText("Bus Managemnt System");
+        jLabel1.setText("Bus Management System");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -83,7 +83,7 @@ public class AdminLogin extends javax.swing.JFrame {
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel3.setText("Admin Pasword  :  ");
+        jLabel3.setText("Admin Password  :  ");
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel4.setText("Admin Name       : ");

@@ -26,8 +26,16 @@ public class UserMain extends javax.swing.JFrame {
      */
     public UserMain() {
         initComponents();
-    }
+  
+        
+    }   
 
+
+
+                
+
+                    
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,7 +68,7 @@ public class UserMain extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel13 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        busno = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         Date date = new Date();
@@ -76,23 +84,22 @@ public class UserMain extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         bookingMainPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         bookingPanel = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        booking_from = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        booking_to = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel23 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        booking_busno = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        booking_time = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
-        jComboBox6 = new javax.swing.JComboBox<>();
+        booking_passenger = new javax.swing.JComboBox<>();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -132,6 +139,10 @@ public class UserMain extends javax.swing.JFrame {
         jPanel13 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jPanel15 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -294,8 +305,12 @@ public class UserMain extends javax.swing.JFrame {
         jLabel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         statusPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 140, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        statusPanel.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 120, 30));
+        busno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busnoActionPerformed(evt);
+            }
+        });
+        statusPanel.add(busno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 120, 30));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel14.setText("Arrive At :");
@@ -328,29 +343,13 @@ public class UserMain extends javax.swing.JFrame {
         statusPanel.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 90, 40));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
-        statusPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 390));
+        statusPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 390));
 
         mainPanel.addTab("tab1", statusPanel);
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 204));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(0, 255, 204), null, null));
         jPanel4.setLayout(null);
-
-        jButton1.setBackground(new java.awt.Color(255, 153, 153));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/status.png"))); // NOI18N
-        jButton1.setText("Status");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 51), null, null));
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setPreferredSize(new java.awt.Dimension(105, 35));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton1);
-        jButton1.setBounds(12, 27, 140, 36);
 
         jButton2.setBackground(new java.awt.Color(255, 102, 102));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -405,21 +404,27 @@ public class UserMain extends javax.swing.JFrame {
         jLabel20.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 150, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        bookingPanel.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 160, 30));
+        booking_from.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kegalle" }));
+        bookingPanel.add(booking_from, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 160, 30));
 
         jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel21.setText("Booking to           :");
         jLabel21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 150, 30));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        bookingPanel.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 30));
+        booking_to.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                booking_toActionPerformed(evt);
+            }
+        });
+        bookingPanel.add(booking_to, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 160, 30));
 
         jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel22.setText("Date                    :");
         jLabel22.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 150, 30));
+
+        jDateChooser2.setDateFormatString("yyyy-MM-dd");
         bookingPanel.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 160, 30));
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -427,24 +432,21 @@ public class UserMain extends javax.swing.JFrame {
         jLabel23.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 150, 30));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        bookingPanel.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 160, 30));
+        bookingPanel.add(booking_busno, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 160, 30));
 
         jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel24.setText("Time                   : ");
         jLabel24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 150, 30));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        bookingPanel.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 160, 30));
+        bookingPanel.add(booking_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, 160, 30));
 
         jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel25.setText("Passenger name   :");
         jLabel25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 150, 30));
 
-        jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        bookingPanel.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 160, 30));
+        bookingPanel.add(booking_passenger, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 160, 30));
 
         jButton9.setText("Submit");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -644,7 +646,7 @@ public class UserMain extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 14, 591, 270));
+        jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 591, 270));
 
         jTabbedPane10.addTab("tab6", jPanel6);
 
@@ -670,21 +672,13 @@ public class UserMain extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 591, Short.MAX_VALUE)
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 262, Short.MAX_VALUE)
-            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel7Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
         );
 
         jTabbedPane10.addTab("tab7", jPanel7);
@@ -711,21 +705,13 @@ public class UserMain extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 591, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 262, Short.MAX_VALUE)
-            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel8Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
         );
 
         jTabbedPane10.addTab("tab8", jPanel8);
@@ -752,21 +738,13 @@ public class UserMain extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 591, Short.MAX_VALUE)
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 262, Short.MAX_VALUE)
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
         );
 
         jTabbedPane10.addTab("tab9", jPanel10);
@@ -793,20 +771,49 @@ public class UserMain extends javax.swing.JFrame {
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 601, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
         );
 
         jScrollPane3.getAccessibleContext().setAccessibleName("tab1");
 
         jTabbedPane10.addTab("tab10", jPanel13);
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Date", "Bus No", "Arrived At", "Left At"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(jTable6);
+
+        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
+        jPanel15.setLayout(jPanel15Layout);
+        jPanel15Layout.setHorizontalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
+        );
+        jPanel15Layout.setVerticalGroup(
+            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+        );
+
+        jTabbedPane10.addTab("tab6", jPanel15);
 
         jPanel14.add(jTabbedPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 0, 590, 290));
         jTabbedPane10.getAccessibleContext().setAccessibleName("tab3");
@@ -815,13 +822,29 @@ public class UserMain extends javax.swing.JFrame {
         searchPanel.add(jPanel14);
         jPanel14.setBounds(180, 40, 616, 265);
 
+        jButton1.setBackground(new java.awt.Color(255, 153, 153));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/status.png"))); // NOI18N
+        jButton1.setText("Status");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 51), null, null));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setPreferredSize(new java.awt.Dimension(105, 35));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        searchPanel.add(jButton1);
+        jButton1.setBounds(10, 300, 160, 36);
+
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
         searchPanel.add(jLabel17);
-        jLabel17.setBounds(0, 0, 800, 380);
+        jLabel17.setBounds(0, -40, 800, 470);
 
         mainPanel.addTab("tab3", searchPanel);
 
-        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, 400));
+        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, -1, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -842,6 +865,28 @@ public class UserMain extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
     mainPanel.setSelectedIndex(0);
+             try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+                   
+            String sql = "select Bus_BusNo from Bus";
+            PreparedStatement pst = con.prepareStatement(sql);
+           ResultSet rs = pst.executeQuery();//ResultSet is the return typed
+           //above statement we will get all Busno from table class
+           while(rs.next())
+           {
+               String Sbusno = rs.getString("Bus_BusNo");//here Bus_Busno is actual column name of the table
+               busno.addItem(Sbusno);//add into jcomboBox
+           }
+           
+           con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -1010,6 +1055,98 @@ public class UserMain extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         mainPanel.setSelectedIndex(2);
+         try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+          
+            //2nd combo box
+           String sql = "select Route_city1 from Route";
+            PreparedStatement pst = con.prepareStatement(sql);
+           String combo_box;
+
+           ResultSet rs2 = pst.executeQuery();//ResultSet is the return typed
+           //above statement we will get all Busno from table class
+            while(rs2.next())
+           {
+              combo_box = rs2.getString("Route_city1");//here Bus_Busno is actual column name of the table
+              booking_to.addItem(combo_box);//add into jcomboBox
+           } 
+        
+           sql = "select Route_city2 from Route";
+           PreparedStatement pst11 = con.prepareStatement(sql);
+           rs2 = pst11.executeQuery();
+           while(rs2.next())
+           {
+              combo_box = rs2.getString("Route_city2");//here Bus_Busno is actual column name of the table
+              booking_to.addItem(combo_box);//add into jcomboBox
+           }
+           
+           sql = "select Route_city3 from Route";   
+          PreparedStatement pst12 = con.prepareStatement(sql);
+           rs2 = pst12.executeQuery();
+           while(rs2.next())
+           {
+              combo_box = rs2.getString("Route_city3");//here Bus_Busno is actual column name of the table
+              booking_to.addItem(combo_box);//add into jcomboBox
+           }
+                    
+            sql = "select Route_To from Route";            
+           PreparedStatement pst13 = con.prepareStatement(sql);
+           rs2 = pst13.executeQuery();
+           while(rs2.next())
+           {
+              combo_box = rs2.getString("Route_To");//here Bus_Busno is actual column name of the table
+              booking_to.addItem(combo_box);//add into jcomboBox
+           }
+           
+          
+           //3rd combo box
+            sql = "select Bus_BusNo from Bus";
+           PreparedStatement pst3 = con.prepareStatement(sql);
+           ResultSet rs3 = pst3.executeQuery();//ResultSet is the return typed
+           //above statement we will get all Busno from table class
+           while(rs3.next())
+           {
+              combo_box = rs3.getString("Bus_BusNo");//here Bus_Busno is actual column name of the table
+              booking_busno.addItem(combo_box);//add into jcomboBox
+           }
+           
+           
+           //4rd combo box
+           sql = "select Bus_TimeOfArrive from Bus";
+           PreparedStatement pst4 = con.prepareStatement(sql);
+           ResultSet rs4 = pst4.executeQuery();//ResultSet is the return typed
+           //above statement we will get all Busno from table class
+           
+           while(rs4.next())
+           {
+              combo_box = rs4.getString("Bus_TimeOfArrive");//here Bus_Busno is actual column name of the table
+              booking_time.addItem(combo_box);//add into jcomboBox
+           }
+           
+           //5th combo box
+           sql = "select Passenger_name from Passenger";
+           PreparedStatement pst5 = con.prepareStatement(sql);
+           ResultSet rs5 = pst5.executeQuery();//ResultSet is the return typed
+           //above statement we will get all Busno from table class
+           while(rs5.next())
+           {
+              combo_box = rs5.getString("Passenger_name");//here Bus_Busno is actual column name of the table
+              booking_passenger.addItem(combo_box);//add into jcomboBox
+           }
+           
+           
+           
+           
+           
+           con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -1019,7 +1156,26 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        mainPanel.setSelectedIndex(0);
+        jTabbedPane10.setSelectedIndex(5);        
+                try
+        {
+            //open conncection
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
+
+            String sql = "select * from Status";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+
+            ResultSet rs = pstmt.executeQuery(sql);
+            jTable6.setModel(DbUtils.resultSetToTableModel(rs));
+
+            con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
@@ -1035,7 +1191,21 @@ public class UserMain extends javax.swing.JFrame {
             Object time11=  jSpinner1.getValue();
             Object time22=  jSpinner2.getValue();
              
-            pstmt.setString(2,"asdf");  
+            String sql1 = "select * from Bus";
+            PreparedStatement pst = con.prepareStatement(sql1);
+           ResultSet rs = pst.executeQuery();//ResultSet is the return typed
+           
+           while(rs.next())
+           {
+               String Sbusno = rs.getString("Bus_BusNo");
+               busno.addItem(Sbusno);
+           }
+            
+            
+           String selectedbusno = null;
+           selectedbusno = busno.getSelectedItem().toString();
+            
+            pstmt.setString(2,selectedbusno);  
             
                     if (time11 instanceof Date) {
                         Date date = (Date)time11;
@@ -1093,14 +1263,58 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        
+          try{       
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+         
+            String sql = "insert into booking values(?,?,?,?,?,?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            
+           String selectedbooking = null;
+           selectedbooking = booking_from.getSelectedItem().toString();
+        
+           String selectedbookedto = booking_to.getSelectedItem().toString();
+           
+           String selecteddate = ((JTextField)jDateChooser2.getDateEditor().getUiComponent()).getText();
+           
+           String selectedbusno = booking_busno.getSelectedItem().toString();
+           
+           String selectedtime = booking_time.getSelectedItem().toString();
+           
+           String selectedpassenger = booking_passenger.getSelectedItem().toString();
+           
+            pstmt.setString(1,selectedbooking); 
+            pstmt.setString(2,selectedbookedto); 
+            pstmt.setString(3,selecteddate); 
+            pstmt.setString(4,selectedbusno); 
+            pstmt.setString(5,selectedtime); 
+            pstmt.setString(6,selectedpassenger);
+            
+            pstmt.executeUpdate();
+           JOptionPane.showMessageDialog(null, "isertion succesful");   
+          }
+          catch(Exception e)
+          {
+              JOptionPane.showMessageDialog(null,e);
+          }
     }//GEN-LAST:event_jButton9ActionPerformed
-
+ 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
         passenger_name.setText("");
         passenger_phoneno.setText("");//need to set up the clear for date and male female button
 
     }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void busnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busnoActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_busnoActionPerformed
+
+    private void booking_toActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booking_toActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_booking_toActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1140,6 +1354,12 @@ public class UserMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bookingMainPanel;
     private javax.swing.JPanel bookingPanel;
+    private javax.swing.JComboBox<String> booking_busno;
+    private javax.swing.JComboBox<String> booking_from;
+    private javax.swing.JComboBox<String> booking_passenger;
+    private javax.swing.JComboBox<String> booking_time;
+    private javax.swing.JComboBox<String> booking_to;
+    private javax.swing.JComboBox<String> busno;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1159,12 +1379,6 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
-    private javax.swing.JComboBox<String> jComboBox6;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
@@ -1198,6 +1412,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
+    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1211,6 +1426,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTabbedPane jTabbedPane10;
@@ -1219,6 +1435,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
     private javax.swing.JTabbedPane mainPanel;
     private javax.swing.JPanel passengerPanel;
     private com.toedter.calendar.JDateChooser passenger_dob;

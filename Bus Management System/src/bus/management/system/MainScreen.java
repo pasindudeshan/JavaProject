@@ -60,9 +60,9 @@ public class MainScreen extends javax.swing.JFrame {
         jPanel2.setLayout(null);
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel3.setText("Pasword     :  ");
+        jLabel3.setText("Password     :  ");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(21, 110, 118, 24);
+        jLabel3.setBounds(21, 110, 130, 24);
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel4.setText("User Name : ");
@@ -134,7 +134,7 @@ public class MainScreen extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 3, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 51));
-        jLabel1.setText("Bus Managemnt System");
+        jLabel1.setText("Bus Management System");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

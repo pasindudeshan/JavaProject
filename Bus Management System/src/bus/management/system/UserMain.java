@@ -443,6 +443,11 @@ public class UserMain extends javax.swing.JFrame {
         ).start();
                 
         }
+        public void AdministrationPanelShow()
+        {
+        administration_panel.setSelectedIndex(1);
+        }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -475,6 +480,24 @@ public class UserMain extends javax.swing.JFrame {
         jPanel16 = new javax.swing.JPanel();
         jLabel26 = new javax.swing.JLabel();
         jButton19 = new javax.swing.JButton();
+        jPanel35 = new javax.swing.JPanel();
+        administration_panel = new javax.swing.JTabbedPane();
+        jPanel27 = new javax.swing.JPanel();
+        jPanel28 = new javax.swing.JPanel();
+        administration_panel_bg = new javax.swing.JPanel();
+        jLabel46 = new javax.swing.JLabel();
+        jPanel26 = new javax.swing.JPanel();
+        jLabel43 = new javax.swing.JLabel();
+        jButton30 = new javax.swing.JButton();
+        jLabel47 = new javax.swing.JLabel();
+        jPanel29 = new javax.swing.JPanel();
+        jLabel44 = new javax.swing.JLabel();
+        jButton31 = new javax.swing.JButton();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        jButton32 = new javax.swing.JButton();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
         mainPanel = new javax.swing.JTabbedPane();
         statusPanel = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
@@ -617,6 +640,35 @@ public class UserMain extends javax.swing.JFrame {
         jButton28 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
+        jPanel25 = new javax.swing.JPanel();
+        jButton29 = new javax.swing.JButton();
+        jButton33 = new javax.swing.JButton();
+        jLabel42 = new javax.swing.JLabel();
+        jPanel31 = new javax.swing.JPanel();
+        jPanel32 = new javax.swing.JPanel();
+        jPanel33 = new javax.swing.JPanel();
+        jPanel34 = new javax.swing.JPanel();
+        jLabel50 = new javax.swing.JLabel();
+        nameF = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
+        dobF = new com.toedter.calendar.JDateChooser();
+        jLabel52 = new javax.swing.JLabel();
+        MaleB = new javax.swing.JRadioButton();
+        FemaleB = new javax.swing.JRadioButton();
+        jLabel53 = new javax.swing.JLabel();
+        phoneNoF = new javax.swing.JTextField();
+        jLabel54 = new javax.swing.JLabel();
+        positionF = new javax.swing.JTextField();
+        jLabel55 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        addressF = new javax.swing.JTextArea();
+        jLabel56 = new javax.swing.JLabel();
+        usernameF = new javax.swing.JTextField();
+        jLabel57 = new javax.swing.JLabel();
+        passwordF = new javax.swing.JPasswordField();
+        jButton34 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
+        jLabel58 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1000, 610));
@@ -707,7 +759,7 @@ public class UserMain extends javax.swing.JFrame {
         });
         jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 5, 120, 30));
 
-        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, -1));
+        jPanel5.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 170, -1));
 
         jPanel11.setBackground(new java.awt.Color(204, 153, 255));
         jPanel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -730,7 +782,7 @@ public class UserMain extends javax.swing.JFrame {
         });
         jPanel11.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 5, 120, 30));
 
-        jPanel5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 170, 40));
+        jPanel5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 170, 40));
 
         jPanel12.setBackground(new java.awt.Color(204, 153, 255));
         jPanel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -753,7 +805,7 @@ public class UserMain extends javax.swing.JFrame {
         });
         jPanel12.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 5, 120, 30));
 
-        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 170, -1));
+        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 170, -1));
 
         jPanel9.setBackground(new java.awt.Color(204, 153, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -776,7 +828,7 @@ public class UserMain extends javax.swing.JFrame {
         });
         jPanel9.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 5, 120, 30));
 
-        jPanel5.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 170, -1));
+        jPanel5.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 170, -1));
 
         jPanel16.setBackground(new java.awt.Color(204, 153, 255));
         jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -799,7 +851,198 @@ public class UserMain extends javax.swing.JFrame {
         });
         jPanel16.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 5, 120, 30));
 
-        jPanel5.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 170, -1));
+        jPanel5.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 170, -1));
+
+        jPanel35.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel35.setToolTipText("");
+
+        administration_panel.setBackground(new java.awt.Color(255, 102, 102));
+
+        jPanel27.setBackground(new java.awt.Color(255, 102, 102));
+
+        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
+        jPanel27.setLayout(jPanel27Layout);
+        jPanel27Layout.setHorizontalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 175, Short.MAX_VALUE)
+        );
+        jPanel27Layout.setVerticalGroup(
+            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 242, Short.MAX_VALUE)
+        );
+
+        administration_panel.addTab("tab1", jPanel27);
+
+        jPanel28.setBackground(new java.awt.Color(255, 102, 102));
+
+        administration_panel_bg.setBackground(new java.awt.Color(255, 102, 102));
+
+        jLabel46.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel46.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel46.setText("Administration Panel");
+        jLabel46.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jPanel26.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel26.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        jLabel43.setToolTipText("");
+
+        jButton30.setBackground(new java.awt.Color(255, 153, 204));
+        jButton30.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jButton30.setForeground(new java.awt.Color(0, 0, 204));
+        jButton30.setText("DataBase");
+        jButton30.setBorderPainted(false);
+        jButton30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton30ActionPerformed(evt);
+            }
+        });
+
+        jLabel47.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/database (1).png"))); // NOI18N
+        jLabel47.setToolTipText("");
+
+        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
+        jPanel26.setLayout(jPanel26Layout);
+        jPanel26Layout.setHorizontalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel47))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel26Layout.setVerticalGroup(
+            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+            .addGroup(jPanel26Layout.createSequentialGroup()
+                .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jPanel29.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel29.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel44.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/sync.png"))); // NOI18N
+        jLabel44.setToolTipText("");
+        jPanel29.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 38));
+
+        jButton31.setBackground(new java.awt.Color(255, 153, 204));
+        jButton31.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jButton31.setForeground(new java.awt.Color(0, 0, 204));
+        jButton31.setText("Update");
+        jButton31.setBorderPainted(false);
+        jButton31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
+        jPanel29.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, 40));
+
+        jPanel30.setBackground(new java.awt.Color(204, 153, 255));
+        jPanel30.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel45.setToolTipText("");
+        jPanel30.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 38));
+
+        jButton32.setBackground(new java.awt.Color(255, 153, 204));
+        jButton32.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jButton32.setForeground(new java.awt.Color(0, 0, 204));
+        jButton32.setText("User Account");
+        jButton32.setBorderPainted(false);
+        jButton32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
+        jPanel30.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, 40));
+
+        jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/management (1).png"))); // NOI18N
+        jLabel48.setToolTipText("");
+        jPanel30.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 40, 38));
+
+        javax.swing.GroupLayout administration_panel_bgLayout = new javax.swing.GroupLayout(administration_panel_bg);
+        administration_panel_bg.setLayout(administration_panel_bgLayout);
+        administration_panel_bgLayout.setHorizontalGroup(
+            administration_panel_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(administration_panel_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(administration_panel_bgLayout.createSequentialGroup()
+                    .addGap(5, 5, 5)
+                    .addGroup(administration_panel_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel29, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel30, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, 160, Short.MAX_VALUE))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        administration_panel_bgLayout.setVerticalGroup(
+            administration_panel_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(administration_panel_bgLayout.createSequentialGroup()
+                .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 200, Short.MAX_VALUE))
+            .addGroup(administration_panel_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(administration_panel_bgLayout.createSequentialGroup()
+                    .addGap(49, 49, 49)
+                    .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(49, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
+        jPanel28.setLayout(jPanel28Layout);
+        jPanel28Layout.setHorizontalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 175, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel28Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(administration_panel_bg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        jPanel28Layout.setVerticalGroup(
+            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 242, Short.MAX_VALUE)
+            .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel28Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(administration_panel_bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        administration_panel.addTab("tab2", jPanel28);
+
+        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
+        jPanel35.setLayout(jPanel35Layout);
+        jPanel35Layout.setHorizontalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(administration_panel)
+        );
+        jPanel35Layout.setVerticalGroup(
+            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel35Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(administration_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel5.add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 240));
+
+        jLabel49.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel49.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel49.setText("Dashboard");
+        jLabel49.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 170, 40));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 560));
 
@@ -1875,6 +2118,220 @@ public class UserMain extends javax.swing.JFrame {
 
         mainPanel.addTab("tab6", jPanel17);
 
+        jPanel25.setLayout(null);
+
+        jButton29.setBackground(new java.awt.Color(255, 153, 153));
+        jButton29.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton29.setForeground(new java.awt.Color(102, 255, 255));
+        jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bus (1).png"))); // NOI18N
+        jButton29.setText("Bus");
+        jButton29.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 153), null, null));
+        jButton29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton29.setPreferredSize(new java.awt.Dimension(105, 35));
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
+        jPanel25.add(jButton29);
+        jButton29.setBounds(20, 60, 140, 39);
+
+        jButton33.setBackground(new java.awt.Color(255, 153, 153));
+        jButton33.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton33.setForeground(new java.awt.Color(102, 255, 255));
+        jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/route (1).png"))); // NOI18N
+        jButton33.setText("Route");
+        jButton33.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 153), null, null));
+        jButton33.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton33.setPreferredSize(new java.awt.Dimension(105, 35));
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
+        jPanel25.add(jButton33);
+        jButton33.setBounds(20, 120, 140, 39);
+
+        jLabel42.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
+        jPanel25.add(jLabel42);
+        jLabel42.setBounds(0, 0, 790, 390);
+
+        mainPanel.addTab("tab7", jPanel25);
+
+        javax.swing.GroupLayout jPanel31Layout = new javax.swing.GroupLayout(jPanel31);
+        jPanel31.setLayout(jPanel31Layout);
+        jPanel31Layout.setHorizontalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 928, Short.MAX_VALUE)
+        );
+        jPanel31Layout.setVerticalGroup(
+            jPanel31Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 362, Short.MAX_VALUE)
+        );
+
+        mainPanel.addTab("tab8", jPanel31);
+
+        javax.swing.GroupLayout jPanel32Layout = new javax.swing.GroupLayout(jPanel32);
+        jPanel32.setLayout(jPanel32Layout);
+        jPanel32Layout.setHorizontalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 928, Short.MAX_VALUE)
+        );
+        jPanel32Layout.setVerticalGroup(
+            jPanel32Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 362, Short.MAX_VALUE)
+        );
+
+        mainPanel.addTab("tab9", jPanel32);
+
+        javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
+        jPanel33.setLayout(jPanel33Layout);
+        jPanel33Layout.setHorizontalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 928, Short.MAX_VALUE)
+        );
+        jPanel33Layout.setVerticalGroup(
+            jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 362, Short.MAX_VALUE)
+        );
+
+        mainPanel.addTab("tab10", jPanel33);
+
+        jPanel34.setLayout(null);
+
+        jLabel50.setBackground(new java.awt.Color(51, 0, 255));
+        jLabel50.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel50.setText("Name                     : ");
+        jLabel50.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel34.add(jLabel50);
+        jLabel50.setBounds(10, 20, 161, 27);
+
+        nameF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameFActionPerformed(evt);
+            }
+        });
+        jPanel34.add(nameF);
+        nameF.setBounds(210, 20, 162, 20);
+
+        jLabel51.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel51.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel51.setText("Date of Birth          :");
+        jLabel51.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel34.add(jLabel51);
+        jLabel51.setBounds(10, 50, 161, 27);
+
+        dobF.setDateFormatString("yyyy-MM-dd");
+        jPanel34.add(dobF);
+        dobF.setBounds(210, 50, 162, 27);
+
+        jLabel52.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel52.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel52.setText("Gender                  :");
+        jLabel52.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel34.add(jLabel52);
+        jLabel52.setBounds(10, 91, 161, 27);
+
+        MaleB.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        MaleB.setText("Male");
+        jPanel34.add(MaleB);
+        MaleB.setBounds(208, 93, 53, 25);
+
+        FemaleB.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        FemaleB.setText("Female");
+        jPanel34.add(FemaleB);
+        FemaleB.setBounds(294, 92, 65, 27);
+
+        jLabel53.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel53.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel53.setText("Telephone No        :");
+        jLabel53.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel34.add(jLabel53);
+        jLabel53.setBounds(10, 138, 161, 27);
+
+        phoneNoF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneNoFActionPerformed(evt);
+            }
+        });
+        jPanel34.add(phoneNoF);
+        phoneNoF.setBounds(208, 140, 162, 26);
+
+        jLabel54.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel54.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel54.setText("Position                 :");
+        jLabel54.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel34.add(jLabel54);
+        jLabel54.setBounds(10, 184, 151, 27);
+        jPanel34.add(positionF);
+        positionF.setBounds(208, 186, 162, 27);
+
+        jLabel55.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel55.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel55.setText("Address                 :");
+        jLabel55.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel34.add(jLabel55);
+        jLabel55.setBounds(10, 237, 161, 27);
+
+        addressF.setColumns(20);
+        addressF.setRows(5);
+        jScrollPane7.setViewportView(addressF);
+
+        jPanel34.add(jScrollPane7);
+        jScrollPane7.setBounds(208, 237, 181, 96);
+
+        jLabel56.setBackground(new java.awt.Color(51, 0, 255));
+        jLabel56.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel56.setText("User Name                 : ");
+        jLabel56.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel34.add(jLabel56);
+        jLabel56.setBounds(435, 11, 169, 32);
+
+        usernameF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usernameFActionPerformed(evt);
+            }
+        });
+        jPanel34.add(usernameF);
+        usernameF.setBounds(614, 11, 176, 26);
+
+        jLabel57.setBackground(new java.awt.Color(51, 0, 255));
+        jLabel57.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel57.setText("Password                    : ");
+        jLabel57.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel34.add(jLabel57);
+        jLabel57.setBounds(435, 61, 169, 27);
+
+        passwordF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel34.add(passwordF);
+        passwordF.setBounds(614, 61, 176, 27);
+
+        jButton34.setText("Submit");
+        jButton34.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton34ActionPerformed(evt);
+            }
+        });
+        jPanel34.add(jButton34);
+        jButton34.setBounds(449, 159, 104, 40);
+
+        jButton35.setText("Clear");
+        jButton35.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+        jPanel34.add(jButton35);
+        jButton35.setBounds(610, 160, 100, 40);
+
+        jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
+        jPanel34.add(jLabel58);
+        jLabel58.setBounds(10, 0, 810, 390);
+
+        mainPanel.addTab("tab11", jPanel34);
+
         jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, 390));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -2553,6 +3010,100 @@ public class UserMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_booking_passengerActionPerformed
 
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        // TODO add your handling code here:
+        mainPanel.setSelectedIndex(10);
+    }//GEN-LAST:event_jButton32ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        // TODO add your handling code here:
+        mainPanel.setSelectedIndex(9);
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+        // TODO add your handling code here:
+        mainPanel.setSelectedIndex(6);
+    }//GEN-LAST:event_jButton30ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        // TODO add your handling code here:
+            mainPanel.setSelectedIndex(7);
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+        // TODO add your handling code here:
+            mainPanel.setSelectedIndex(8);
+    }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void nameFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameFActionPerformed
+
+    private void phoneNoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneNoFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phoneNoFActionPerformed
+
+    private void usernameFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usernameFActionPerformed
+
+    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
+        // TODO add your handling code here:
+        //add button action
+        /*   String name = nameF.getText(); // get the text from the nam
+        String dob = dobF.getText();
+        String phoneNo = phoneNoF.getText();
+        String position = positionF.getText();
+        String address = addressF.getText();
+        String username = usernameF.getText();
+        char[] password = passwordF.getPassword();
+        */
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            //String databaseURL = "jdbc:mysql://localhost:3307/bus_management_system";
+            //  Connection con = (Connection) DriverManager.getConnection(databaseURL,"root", "");
+            //Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/?user=root&password=rootpassword");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+
+            //  String insertQuery = "insert into User Values('"+name+"',"+dob+"','"+null+"','"+phoneNo+"','"+position+"','"+address+"','"+username+"','"+Arrays.toString(password)+"','"+position+"')";
+            // Statement stat = con.createStatement();
+            //int x = stat.executeUpdate(insertQuery);
+            //System.out.print(x);
+            String sql = "insert into user values(?,?,?,?,?,?,?,?)";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1,nameF.getText());
+            pstmt.setString(2,((JTextField)dobF.getDateEditor().getUiComponent()).getText());
+            String dept = null;
+            if(MaleB.isSelected())
+            {
+                dept = MaleB.getText();
+            }
+            if(FemaleB.isSelected())
+            {
+                dept = FemaleB.getText();
+            }
+
+            pstmt.setString(3,dept);
+            pstmt.setInt(4,Integer.parseInt(phoneNoF.getText()));
+            pstmt.setString(5,positionF.getText());
+            pstmt.setString(6,addressF.getText());
+            pstmt.setString(7,usernameF.getText());
+            String pwd = new String(passwordF.getPassword());  // to get the input from  the password field
+            pstmt.setString(8,pwd);
+            pstmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "isertion succesful");
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton35ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2601,6 +3152,8 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> B_time_update;
     private javax.swing.JTextField B_to;
     private javax.swing.JComboBox<String> B_to_update;
+    private javax.swing.JRadioButton FemaleB;
+    private javax.swing.JRadioButton MaleB;
     private javax.swing.JTextField P_dob;
     private com.toedter.calendar.JDateChooser P_dob_update;
     private javax.swing.JRadioButton P_female_update;
@@ -2610,6 +3163,9 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JTextField P_name_update;
     private javax.swing.JTextField P_number;
     private javax.swing.JTextField P_number_update;
+    private javax.swing.JTextArea addressF;
+    private javax.swing.JTabbedPane administration_panel;
+    private javax.swing.JPanel administration_panel_bg;
     private javax.swing.JPanel bookingMainPanel;
     private javax.swing.JPanel bookingPanel;
     private javax.swing.JComboBox<String> booking_busno;
@@ -2621,6 +3177,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> busno;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel datelabel;
+    private com.toedter.calendar.JDateChooser dobF;
     private javax.swing.JLabel id_label;
     private javax.swing.JLabel invoicelabel;
     private javax.swing.JButton jButton1;
@@ -2644,7 +3201,14 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
+    private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -2690,7 +3254,24 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2712,7 +3293,18 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
+    private javax.swing.JPanel jPanel25;
+    private javax.swing.JPanel jPanel26;
+    private javax.swing.JPanel jPanel27;
+    private javax.swing.JPanel jPanel28;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
+    private javax.swing.JPanel jPanel31;
+    private javax.swing.JPanel jPanel32;
+    private javax.swing.JPanel jPanel33;
+    private javax.swing.JPanel jPanel34;
+    private javax.swing.JPanel jPanel35;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
@@ -2725,6 +3317,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -2738,6 +3331,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
     private javax.swing.JTabbedPane mainPanel;
+    private javax.swing.JTextField nameF;
     private javax.swing.JPanel passengerPanel;
     private javax.swing.JComboBox<String> passenger_combobox;
     private com.toedter.calendar.JDateChooser passenger_dob;
@@ -2745,8 +3339,12 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JRadioButton passenger_male;
     private javax.swing.JTextField passenger_name;
     private javax.swing.JTextField passenger_phoneno;
+    private javax.swing.JPasswordField passwordF;
+    private javax.swing.JTextField phoneNoF;
+    private javax.swing.JTextField positionF;
     private javax.swing.JPanel searchPanel;
     private javax.swing.JPanel statusPanel;
     private javax.swing.JLabel timelabel;
+    private javax.swing.JTextField usernameF;
     // End of variables declaration//GEN-END:variables
 }

@@ -44,7 +44,7 @@ public class AdminLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin Login");
-        setPreferredSize(new java.awt.Dimension(921, 555));
+        setPreferredSize(new java.awt.Dimension(930, 555));
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -97,13 +97,13 @@ public class AdminLogin extends javax.swing.JFrame {
         user_name_field.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         user_name_field.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         jPanel3.add(user_name_field);
-        user_name_field.setBounds(190, 90, 239, 39);
+        user_name_field.setBounds(190, 90, 230, 39);
 
         jButton1.setBackground(new java.awt.Color(153, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 0, 102));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loading (1).png"))); // NOI18N
-        jButton1.setText("Reset");
+        jButton1.setText("Clear");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +111,7 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(270, 230, 165, 44);
+        jButton1.setBounds(300, 230, 120, 40);
 
         jButton2.setBackground(new java.awt.Color(153, 255, 255));
         jButton2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -126,9 +126,9 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton2);
-        jButton2.setBounds(20, 230, 124, 44);
+        jButton2.setBounds(80, 230, 124, 44);
         jPanel3.add(password_field);
-        password_field.setBounds(190, 150, 244, 35);
+        password_field.setBounds(190, 150, 230, 35);
 
         userlogin.setBackground(new java.awt.Color(153, 255, 255));
         userlogin.setFont(new java.awt.Font("SansSerif", 1, 15)); // NOI18N
@@ -143,7 +143,7 @@ public class AdminLogin extends javax.swing.JFrame {
             }
         });
         jPanel3.add(userlogin);
-        userlogin.setBounds(110, 290, 203, 56);
+        userlogin.setBounds(180, 290, 150, 50);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Hnet.com-image (4).jpg"))); // NOI18N
         jPanel3.add(jLabel7);
@@ -207,10 +207,12 @@ public class AdminLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Welcome " + user_name, "Successfull Login",JOptionPane.PLAIN_MESSAGE);
             //to show a successfull login message
 
-            dispose();
-            NewUser user = new NewUser();
-            user.setLocationRelativeTo(null);
-            user.setVisible(true);
+           
+            UserMain main = new UserMain();
+            main.setLocationRelativeTo(null);
+            main.setVisible(true);
+            main.AdministrationPanelShow();
+             dispose();
 
         }
         else

@@ -42,6 +42,7 @@ public class UserMain extends javax.swing.JFrame {
         ShowDateLabel();
         ShowTimeLabel();
         ShowRouteNumber();
+         UserAccountShow();
   
         
     } 
@@ -329,6 +330,8 @@ public class UserMain extends javax.swing.JFrame {
            {
                String Sbusno = rs.getString("Bus_BusNo");//here Bus_Busno is actual column name of the table
                busno.addItem(Sbusno);//add into jcomboBox
+               busno_combobox.addItem(Sbusno);
+     
            }
            
            con.close();
@@ -466,6 +469,8 @@ public class UserMain extends javax.swing.JFrame {
             String  combo_box = rs5.getString("Route_RouteNO");//here Bus_Busno is actual column name of the table
         
             route_number.addItem(combo_box);//add into jcomboBox
+            B_route_no_update.addItem(combo_box);
+            route_combobox.addItem(combo_box);
            } 
            
            con.close();
@@ -484,6 +489,7 @@ public class UserMain extends javax.swing.JFrame {
             String id = bus_number.getText();
             busno.addItem(id);
             booking_busno.addItem(id);
+            busno_combobox.addItem(id);
         }
         
         public void UpdateBusRouteNo()
@@ -497,6 +503,41 @@ public class UserMain extends javax.swing.JFrame {
            
            booking_time.addItem(time);
        }//This method is taking the time as string and add it to the booking_time combo box
+        
+        
+        public void UserAccountShow()
+        {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+                   
+            String sql = "select User_name from User";
+            PreparedStatement pst = con.prepareStatement(sql);
+           ResultSet rs = pst.executeQuery();//ResultSet is the return typed
+           //above statement we will get all Busno from table class
+           while(rs.next())
+           {
+               String name = rs.getString("User_name");//here Bus_Busno is actual column name of the table
+               user_name.addItem(name);//add into jcomboBox
+     
+           }
+           
+           con.close();
+        }
+        
+        
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        }  
+        
+        
+//        public void UpdateBusNo()
+//        {
+//            busno_combobox.
+//        }
         
     /**
      * This method is called from within the constructor to initialize the form.
@@ -731,6 +772,79 @@ public class UserMain extends javax.swing.JFrame {
         start_from = new javax.swing.JTextField();
         jLabel71 = new javax.swing.JLabel();
         jPanel33 = new javax.swing.JPanel();
+        jPanel36 = new javax.swing.JPanel();
+        jButton40 = new javax.swing.JButton();
+        jTabbedPane4 = new javax.swing.JTabbedPane();
+        jPanel44 = new javax.swing.JPanel();
+        jPanel37 = new javax.swing.JPanel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel73 = new javax.swing.JLabel();
+        jLabel74 = new javax.swing.JLabel();
+        jLabel75 = new javax.swing.JLabel();
+        jButton42 = new javax.swing.JButton();
+        jLabel76 = new javax.swing.JLabel();
+        busno_combobox = new javax.swing.JComboBox<>();
+        jTabbedPane5 = new javax.swing.JTabbedPane();
+        jPanel38 = new javax.swing.JPanel();
+        jPanel39 = new javax.swing.JPanel();
+        B_seats = new javax.swing.JTextField();
+        B_arrive = new javax.swing.JTextField();
+        B_leave = new javax.swing.JTextField();
+        B_routeno = new javax.swing.JTextField();
+        jButton43 = new javax.swing.JButton();
+        jButton44 = new javax.swing.JButton();
+        jPanel40 = new javax.swing.JPanel();
+        B_seats_update = new javax.swing.JTextField();
+        jButton45 = new javax.swing.JButton();
+        B_route_no_update = new javax.swing.JComboBox<>();
+        Date date_left_udpate = new Date();
+        SpinnerDateModel sm_left_update =
+        new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);
+        B_left_time_update = new javax.swing.JSpinner(sm_left_update);
+        Date date_arrive_update = new Date();
+        SpinnerDateModel sm_arrive_update =
+        new SpinnerDateModel(date,null,null,Calendar.HOUR_OF_DAY);
+        B_arrive_time_update = new javax.swing.JSpinner(sm_arrive_update);
+        B_busno_update = new javax.swing.JTextField();
+        jPanel41 = new javax.swing.JPanel();
+        jLabel77 = new javax.swing.JLabel();
+        route_combobox = new javax.swing.JComboBox<>();
+        jLabel78 = new javax.swing.JLabel();
+        jLabel79 = new javax.swing.JLabel();
+        jLabel80 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        jButton46 = new javax.swing.JButton();
+        jTabbedPane6 = new javax.swing.JTabbedPane();
+        jPanel42 = new javax.swing.JPanel();
+        jPanel43 = new javax.swing.JPanel();
+        R_to = new javax.swing.JTextField();
+        R_city3 = new javax.swing.JTextField();
+        R_city2 = new javax.swing.JTextField();
+        R_city1 = new javax.swing.JTextField();
+        R_from = new javax.swing.JTextField();
+        jButton47 = new javax.swing.JButton();
+        jButton48 = new javax.swing.JButton();
+        B_date_update1 = new javax.swing.JPanel();
+        jButton49 = new javax.swing.JButton();
+        R_route_update = new javax.swing.JTextField();
+        R_from_update = new javax.swing.JTextField();
+        R_city1_update = new javax.swing.JTextField();
+        R_city2_update = new javax.swing.JTextField();
+        R_city3_update = new javax.swing.JTextField();
+        R_to_update = new javax.swing.JTextField();
+        jPanel45 = new javax.swing.JPanel();
+        jButton50 = new javax.swing.JButton();
+        jButton51 = new javax.swing.JButton();
+        jTabbedPane7 = new javax.swing.JTabbedPane();
+        jPanel46 = new javax.swing.JPanel();
+        jPanel47 = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
+        user_name = new javax.swing.JComboBox<>();
+        jButton52 = new javax.swing.JButton();
+        jPanel48 = new javax.swing.JPanel();
+        jButton41 = new javax.swing.JButton();
+        jButton53 = new javax.swing.JButton();
         jPanel34 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         nameF = new javax.swing.JTextField();
@@ -991,8 +1105,8 @@ public class UserMain extends javax.swing.JFrame {
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel43)
                     .addComponent(jLabel47))
-                .addGap(18, 18, 18)
-                .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton30, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel26Layout.setVerticalGroup(
@@ -1024,7 +1138,7 @@ public class UserMain extends javax.swing.JFrame {
                 jButton31ActionPerformed(evt);
             }
         });
-        jPanel29.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
+        jPanel29.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, 40));
 
         jPanel30.setBackground(new java.awt.Color(204, 153, 255));
         jPanel30.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1044,7 +1158,7 @@ public class UserMain extends javax.swing.JFrame {
                 jButton32ActionPerformed(evt);
             }
         });
-        jPanel30.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, 110, 40));
+        jPanel30.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 120, 40));
 
         jLabel48.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/management (1).png"))); // NOI18N
         jLabel48.setToolTipText("");
@@ -1136,7 +1250,7 @@ public class UserMain extends javax.swing.JFrame {
         statusPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel18.setText("Date: ");
+        jLabel18.setText("Date         : ");
         jLabel18.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         statusPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 140, 30));
 
@@ -1145,7 +1259,7 @@ public class UserMain extends javax.swing.JFrame {
         statusPanel.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 120, 30));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel13.setText("Bus No :");
+        jLabel13.setText("Bus No     :");
         jLabel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         statusPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 140, 30));
 
@@ -1157,7 +1271,7 @@ public class UserMain extends javax.swing.JFrame {
         statusPanel.add(busno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 120, 30));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel14.setText("Arrive At :");
+        jLabel14.setText("Arrive At   :");
         jLabel14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         statusPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, 30));
 
@@ -1199,7 +1313,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(102, 255, 255));
+        jButton2.setForeground(new java.awt.Color(51, 102, 255));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background-check.png"))); // NOI18N
         jButton2.setText("Passenger");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 153), null, null));
@@ -1215,7 +1329,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(255, 153, 153));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(102, 255, 255));
+        jButton3.setForeground(new java.awt.Color(51, 102, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reservation.png"))); // NOI18N
         jButton3.setText("Booking");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 51), null, null));
@@ -1449,7 +1563,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton8.setBackground(new java.awt.Color(255, 204, 204));
         jButton8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(51, 255, 255));
+        jButton8.setForeground(new java.awt.Color(51, 102, 255));
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bus.png"))); // NOI18N
         jButton8.setText("Bus");
         jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1463,7 +1577,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton7.setBackground(new java.awt.Color(255, 204, 153));
         jButton7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(51, 255, 255));
+        jButton7.setForeground(new java.awt.Color(51, 102, 255));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/route.png"))); // NOI18N
         jButton7.setText("Route");
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1477,7 +1591,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(255, 204, 102));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(102, 255, 255));
+        jButton4.setForeground(new java.awt.Color(51, 102, 255));
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/passenger (1).png"))); // NOI18N
         jButton4.setText("Passenger");
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1492,7 +1606,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(255, 153, 51));
         jButton5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(102, 255, 255));
+        jButton5.setForeground(new java.awt.Color(51, 102, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/online-booking.png"))); // NOI18N
         jButton5.setText("Booking");
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1506,7 +1620,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton11.setBackground(new java.awt.Color(255, 102, 51));
         jButton11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton11.setForeground(new java.awt.Color(102, 255, 255));
+        jButton11.setForeground(new java.awt.Color(51, 102, 255));
         jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/contact-list.png"))); // NOI18N
         jButton11.setText("User");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
@@ -1720,7 +1834,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(255, 153, 153));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(102, 255, 255));
+        jButton1.setForeground(new java.awt.Color(51, 102, 255));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/status.png"))); // NOI18N
         jButton1.setText("Status");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 51), null, null));
@@ -1744,8 +1858,8 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton10.setBackground(new java.awt.Color(255, 153, 153));
         jButton10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(102, 255, 255));
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/reservation.png"))); // NOI18N
+        jButton10.setForeground(new java.awt.Color(51, 102, 255));
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/online-booking.png"))); // NOI18N
         jButton10.setText("Booking");
         jButton10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 255), null, null));
         jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1759,7 +1873,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton20.setBackground(new java.awt.Color(255, 153, 153));
         jButton20.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton20.setForeground(new java.awt.Color(102, 255, 255));
+        jButton20.setForeground(new java.awt.Color(51, 102, 255));
         jButton20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/background-check.png"))); // NOI18N
         jButton20.setText("Passenger");
         jButton20.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 153, 153), null, null));
@@ -2198,7 +2312,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
         jPanel17.add(jLabel41);
-        jLabel41.setBounds(0, 0, 700, 390);
+        jLabel41.setBounds(0, 0, 820, 390);
 
         mainPanel.addTab("tab6", jPanel17);
 
@@ -2206,7 +2320,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton29.setBackground(new java.awt.Color(255, 153, 153));
         jButton29.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton29.setForeground(new java.awt.Color(102, 255, 255));
+        jButton29.setForeground(new java.awt.Color(51, 102, 255));
         jButton29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bus (1).png"))); // NOI18N
         jButton29.setText("Bus");
         jButton29.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 153), null, null));
@@ -2222,7 +2336,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jButton33.setBackground(new java.awt.Color(255, 153, 153));
         jButton33.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton33.setForeground(new java.awt.Color(102, 255, 255));
+        jButton33.setForeground(new java.awt.Color(51, 102, 255));
         jButton33.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/route (1).png"))); // NOI18N
         jButton33.setText("Route");
         jButton33.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 153), null, null));
@@ -2395,15 +2509,620 @@ public class UserMain extends javax.swing.JFrame {
 
         mainPanel.addTab("tab9", jPanel32);
 
+        jPanel36.setLayout(null);
+
+        jButton40.setBackground(new java.awt.Color(255, 153, 153));
+        jButton40.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton40.setForeground(new java.awt.Color(51, 102, 255));
+        jButton40.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/route (1).png"))); // NOI18N
+        jButton40.setText("Route");
+        jButton40.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 255), null, null));
+        jButton40.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton40ActionPerformed(evt);
+            }
+        });
+        jPanel36.add(jButton40);
+        jButton40.setBounds(20, 90, 140, 40);
+
+        javax.swing.GroupLayout jPanel44Layout = new javax.swing.GroupLayout(jPanel44);
+        jPanel44.setLayout(jPanel44Layout);
+        jPanel44Layout.setHorizontalGroup(
+            jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 493, Short.MAX_VALUE)
+        );
+        jPanel44Layout.setVerticalGroup(
+            jPanel44Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 312, Short.MAX_VALUE)
+        );
+
+        jTabbedPane4.addTab("tab3", jPanel44);
+
+        jLabel72.setText("No of Seats        :");
+
+        jLabel73.setText("Time of Arrive     :");
+
+        jLabel74.setText("Route No            :");
+
+        jLabel75.setText("Time of Leave     :  ");
+
+        jButton42.setText("Search");
+        jButton42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton42ActionPerformed(evt);
+            }
+        });
+
+        jLabel76.setText("Bus No               :");
+
+        busno_combobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busno_comboboxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel38Layout = new javax.swing.GroupLayout(jPanel38);
+        jPanel38.setLayout(jPanel38Layout);
+        jPanel38Layout.setHorizontalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel38Layout.setVerticalGroup(
+            jPanel38Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jTabbedPane5.addTab("tab1", jPanel38);
+
+        jButton43.setText("Delete");
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
+
+        jButton44.setText("Update");
+        jButton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton44ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel39Layout = new javax.swing.GroupLayout(jPanel39);
+        jPanel39.setLayout(jPanel39Layout);
+        jPanel39Layout.setHorizontalGroup(
+            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel39Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(B_routeno, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(B_leave, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(B_seats)
+                    .addComponent(B_arrive)
+                    .addGroup(jPanel39Layout.createSequentialGroup()
+                        .addComponent(jButton43)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addComponent(jButton44)))
+                .addGap(0, 36, Short.MAX_VALUE))
+        );
+        jPanel39Layout.setVerticalGroup(
+            jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel39Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(B_seats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(B_arrive, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(B_leave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(B_routeno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel39Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton43)
+                    .addComponent(jButton44))
+                .addContainerGap())
+        );
+
+        jTabbedPane5.addTab("tab3", jPanel39);
+
+        B_seats_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_seats_updateActionPerformed(evt);
+            }
+        });
+
+        jButton45.setText("Save");
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton45ActionPerformed(evt);
+            }
+        });
+
+        JSpinner.DateEditor de_leave_update = new JSpinner.DateEditor(B_left_time_update,"HH:mm:ss");
+        B_left_time_update.setEditor(de_leave_update);
+
+        JSpinner.DateEditor de_arrive_update = new JSpinner.DateEditor(B_arrive_time_update,"HH:mm:ss");
+
+        B_arrive_time_update.setEditor(de_arrive_update);
+
+        B_busno_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_busno_updateActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel40Layout = new javax.swing.GroupLayout(jPanel40);
+        jPanel40.setLayout(jPanel40Layout);
+        jPanel40Layout.setHorizontalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel40Layout.createSequentialGroup()
+                .addGroup(jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel40Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(B_route_no_update, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel40Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(B_left_time_update, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel40Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(B_seats_update))
+                    .addGroup(jPanel40Layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(jButton45))
+                    .addGroup(jPanel40Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(B_busno_update, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
+                    .addGroup(jPanel40Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(B_arrive_time_update, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jPanel40Layout.setVerticalGroup(
+            jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel40Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(B_busno_update, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(B_seats_update, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(B_arrive_time_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(B_left_time_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(B_route_no_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton45)
+                .addContainerGap())
+        );
+
+        jTabbedPane5.addTab("tab2", jPanel40);
+
+        javax.swing.GroupLayout jPanel37Layout = new javax.swing.GroupLayout(jPanel37);
+        jPanel37.setLayout(jPanel37Layout);
+        jPanel37Layout.setHorizontalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel37Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel37Layout.createSequentialGroup()
+                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel75, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel73, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel72, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel76, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel74, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
+                        .addComponent(busno_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton42))
+                .addGap(26, 26, 26)
+                .addComponent(jTabbedPane5)
+                .addGap(19, 19, 19))
+        );
+        jPanel37Layout.setVerticalGroup(
+            jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel37Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel37Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel37Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel76)
+                            .addComponent(busno_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel72)
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel73)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel75)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel74)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton42))
+                    .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jTabbedPane4.addTab("tab1", jPanel37);
+
+        jLabel77.setText("Route No        :");
+
+        jLabel78.setText("Start from       :");
+
+        jLabel79.setText("City 1              :");
+
+        jLabel80.setText("City 2              :");
+
+        jLabel81.setText("City 3              :");
+
+        jLabel82.setText("Destination     : ");
+
+        jButton46.setText("Search");
+        jButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton46ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel42Layout = new javax.swing.GroupLayout(jPanel42);
+        jPanel42.setLayout(jPanel42Layout);
+        jPanel42Layout.setHorizontalGroup(
+            jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 273, Short.MAX_VALUE)
+        );
+        jPanel42Layout.setVerticalGroup(
+            jPanel42Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 234, Short.MAX_VALUE)
+        );
+
+        jTabbedPane6.addTab("tab3", jPanel42);
+
+        jButton47.setText("Delete");
+        jButton47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton47ActionPerformed(evt);
+            }
+        });
+
+        jButton48.setText("Update");
+        jButton48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton48ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel43Layout = new javax.swing.GroupLayout(jPanel43);
+        jPanel43.setLayout(jPanel43Layout);
+        jPanel43Layout.setHorizontalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel43Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel43Layout.createSequentialGroup()
+                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(R_city1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(R_city2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(R_city3, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton47, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton48, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(25, 25, 25))
+                    .addGroup(jPanel43Layout.createSequentialGroup()
+                        .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(R_from, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(R_to, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
+        jPanel43Layout.setVerticalGroup(
+            jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel43Layout.createSequentialGroup()
+                .addGap(0, 55, Short.MAX_VALUE)
+                .addComponent(R_from, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel43Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel43Layout.createSequentialGroup()
+                        .addComponent(jButton47)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton48)
+                        .addGap(62, 62, 62))
+                    .addGroup(jPanel43Layout.createSequentialGroup()
+                        .addComponent(R_city1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(R_city2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(R_city3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(R_to, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))))
+        );
+
+        jTabbedPane6.addTab("tab2", jPanel43);
+
+        jButton49.setText("Save");
+        jButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton49ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout B_date_update1Layout = new javax.swing.GroupLayout(B_date_update1);
+        B_date_update1.setLayout(B_date_update1Layout);
+        B_date_update1Layout.setHorizontalGroup(
+            B_date_update1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(B_date_update1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(B_date_update1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, B_date_update1Layout.createSequentialGroup()
+                        .addGroup(B_date_update1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(R_to_update, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(R_city3_update, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(R_city1_update, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                            .addComponent(R_city2_update, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(11, 11, 11)
+                        .addComponent(jButton49, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(B_date_update1Layout.createSequentialGroup()
+                        .addGroup(B_date_update1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(R_from_update, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(R_route_update, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        B_date_update1Layout.setVerticalGroup(
+            B_date_update1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(B_date_update1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(R_route_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(R_from_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(B_date_update1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(B_date_update1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jButton49))
+                    .addGroup(B_date_update1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(R_city1_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(R_city2_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(R_city3_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(R_to_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        jTabbedPane6.addTab("tab1", B_date_update1);
+
+        javax.swing.GroupLayout jPanel41Layout = new javax.swing.GroupLayout(jPanel41);
+        jPanel41.setLayout(jPanel41Layout);
+        jPanel41Layout.setHorizontalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel41Layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel41Layout.createSequentialGroup()
+                        .addComponent(jButton46)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel41Layout.createSequentialGroup()
+                        .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel41Layout.createSequentialGroup()
+                                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel82)
+                                    .addComponent(jLabel81)
+                                    .addComponent(jLabel80)
+                                    .addComponent(jLabel79)
+                                    .addComponent(jLabel78, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(112, 112, 112))
+                            .addGroup(jPanel41Layout.createSequentialGroup()
+                                .addComponent(jLabel77)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(route_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(jTabbedPane6)))
+                .addContainerGap())
+        );
+        jPanel41Layout.setVerticalGroup(
+            jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel41Layout.createSequentialGroup()
+                .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel41Layout.createSequentialGroup()
+                        .addComponent(jTabbedPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(jPanel41Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel41Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel77)
+                            .addComponent(route_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel78)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel79)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel80)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel81)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel82)
+                        .addGap(38, 38, 38)))
+                .addComponent(jButton46))
+        );
+
+        jTabbedPane4.addTab("tab2", jPanel41);
+
+        jButton50.setBackground(new java.awt.Color(255, 153, 153));
+        jButton50.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton50.setForeground(new java.awt.Color(51, 102, 255));
+        jButton50.setText("User Account");
+        jButton50.setToolTipText("");
+        jButton50.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 153, 153), null, null));
+        jButton50.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton50.setPreferredSize(new java.awt.Dimension(105, 35));
+        jButton50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton50ActionPerformed(evt);
+            }
+        });
+
+        jButton51.setBackground(new java.awt.Color(255, 153, 153));
+        jButton51.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton51.setForeground(new java.awt.Color(51, 102, 255));
+        jButton51.setText("Status");
+        jButton51.setToolTipText("");
+        jButton51.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 153, 153), null, null));
+        jButton51.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton51.setPreferredSize(new java.awt.Dimension(105, 35));
+        jButton51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton51ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel46Layout = new javax.swing.GroupLayout(jPanel46);
+        jPanel46.setLayout(jPanel46Layout);
+        jPanel46Layout.setHorizontalGroup(
+            jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 310, Short.MAX_VALUE)
+        );
+        jPanel46Layout.setVerticalGroup(
+            jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+
+        jTabbedPane7.addTab("tab1", jPanel46);
+
+        jTextField1.setText("User Name    :");
+
+        jButton52.setText("Delete");
+        jButton52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton52ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel47Layout = new javax.swing.GroupLayout(jPanel47);
+        jPanel47.setLayout(jPanel47Layout);
+        jPanel47Layout.setHorizontalGroup(
+            jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel47Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton52, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel47Layout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+        jPanel47Layout.setVerticalGroup(
+            jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel47Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(user_name, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(jTextField1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addComponent(jButton52, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
+        );
+
+        jTabbedPane7.addTab("tab2", jPanel47);
+
+        javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
+        jPanel48.setLayout(jPanel48Layout);
+        jPanel48Layout.setHorizontalGroup(
+            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 310, Short.MAX_VALUE)
+        );
+        jPanel48Layout.setVerticalGroup(
+            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+
+        jTabbedPane7.addTab("tab3", jPanel48);
+
+        javax.swing.GroupLayout jPanel45Layout = new javax.swing.GroupLayout(jPanel45);
+        jPanel45.setLayout(jPanel45Layout);
+        jPanel45Layout.setHorizontalGroup(
+            jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel45Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton50, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton51, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane7)
+                .addContainerGap())
+        );
+        jPanel45Layout.setVerticalGroup(
+            jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel45Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane7)
+                    .addGroup(jPanel45Layout.createSequentialGroup()
+                        .addComponent(jButton50, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton51, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        jTabbedPane4.addTab("tab4", jPanel45);
+
+        jPanel36.add(jTabbedPane4);
+        jTabbedPane4.setBounds(204, 11, 498, 340);
+
+        jButton41.setBackground(new java.awt.Color(255, 153, 153));
+        jButton41.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton41.setForeground(new java.awt.Color(51, 102, 255));
+        jButton41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bus (1).png"))); // NOI18N
+        jButton41.setText("Bus");
+        jButton41.setToolTipText("");
+        jButton41.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 153, 153), null, null));
+        jButton41.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton41.setPreferredSize(new java.awt.Dimension(105, 35));
+        jButton41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton41ActionPerformed(evt);
+            }
+        });
+        jPanel36.add(jButton41);
+        jButton41.setBounds(19, 33, 140, 39);
+
+        jButton53.setBackground(new java.awt.Color(255, 153, 153));
+        jButton53.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton53.setForeground(new java.awt.Color(51, 102, 255));
+        jButton53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/route (1).png"))); // NOI18N
+        jButton53.setText("Delete");
+        jButton53.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 255), null, null));
+        jButton53.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton53ActionPerformed(evt);
+            }
+        });
+        jPanel36.add(jButton53);
+        jButton53.setBounds(20, 210, 140, 40);
+
         javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
         jPanel33.setLayout(jPanel33Layout);
         jPanel33Layout.setHorizontalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 928, Short.MAX_VALUE)
+            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel33Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, 928, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel33Layout.setVerticalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 362, Short.MAX_VALUE)
+            .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel33Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         mainPanel.addTab("tab10", jPanel33);
@@ -2539,7 +3258,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
         jPanel34.add(jLabel58);
-        jLabel58.setBounds(10, 0, 810, 390);
+        jLabel58.setBounds(0, 0, 810, 390);
 
         mainPanel.addTab("tab11", jPanel34);
 
@@ -3417,6 +4136,326 @@ public class UserMain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton39ActionPerformed
 
+    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton40ActionPerformed
+
+    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton41ActionPerformed
+
+    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
+        // TODO add your handling code here:
+                     jTabbedPane5.setSelectedIndex(1);
+            try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
+
+           
+           
+              String sql = "select * from Bus where Bus_BusNo = ?";
+           PreparedStatement pstmt = con.prepareStatement(sql);
+            
+            pstmt.setString(1,busno_combobox.getSelectedItem().toString());
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next())
+            {
+                B_seats.setText(rs.getString("Bus_No_Of_Seats"));
+                
+                B_arrive.setText(rs.getString("Bus_Time_Of_Arrive"));
+
+                B_leave.setText(rs.getString("Bus_Time_Of_Leave"));
+                B_routeno.setText(rs.getString("Bus_RouteNo"));
+                                                
+                                               
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Record not found");
+            }
+            
+                     con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
+    }//GEN-LAST:event_jButton42ActionPerformed
+
+    private void busno_comboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busno_comboboxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busno_comboboxActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        // TODO add your handling code here:
+                    try{       
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+         
+            String sql = "delete from Bus where Bus_BusNo = ?"; 
+            PreparedStatement pstmt = con.prepareStatement(sql);
+     
+          String  selectedbusno = busno_combobox.getSelectedItem().toString(); 
+           
+          pstmt.setString(1,selectedbusno); 
+          pstmt.executeUpdate();
+           JOptionPane.showMessageDialog(null, "Record Deleted Successfully");  
+            int index = busno_combobox.getSelectedIndex();//declare int for catch index
+           busno_combobox.removeItemAt(index);//remove item by select item
+           
+           B_seats.setText("");
+           B_arrive.setText("");
+           B_leave.setText("");
+           B_routeno.setText("");
+           con.close();
+           
+            jTabbedPane5.setSelectedIndex(0);
+          }
+          catch(Exception e)
+          {
+              JOptionPane.showMessageDialog(null,e);
+          }
+    }//GEN-LAST:event_jButton43ActionPerformed
+
+    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane5.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton44ActionPerformed
+
+    private void B_seats_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_seats_updateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B_seats_updateActionPerformed
+
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+        // TODO add your handling code here:
+         try{       
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+         
+            String sql = "update Bus set Bus_BusNo = ?, Bus_No_Of_Seats = ?, Bus_Time_Of_Arrive = ?, Bus_Time_Of_Arrive = ? ,Bus_RouteNo =? where Bus_BusNo = ?"; 
+            PreparedStatement pstmt = con.prepareStatement(sql);
+     
+            pstmt.setString(1,B_busno_update.getText());
+            pstmt.setInt(2,Integer.parseInt(B_seats_update.getText()));
+            Object time11=  B_arrive_time_update.getValue();
+            Object time22=  B_left_time_update.getValue();
+             
+//            String sql1 = "select * from Bus";
+//            PreparedStatement pst = con.prepareStatement(sql1);
+//           ResultSet rs = pst.executeQuery();//ResultSet is the return typed
+//           
+//           while(rs.next())
+//           {
+//               String Sbusno = rs.getString("Bus_BusNo");
+//               busno.addItem(Sbusno);
+//           }
+            
+                String time1 = null;
+                    if (time11 instanceof Date) {
+                        Date date = (Date)time11;
+                        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");//need to import the SinmpleDateFormat
+                        time1 = format.format(date);
+                        pstmt.setString(3,time1);
+                    }
+
+                    if (time22 instanceof Date) {
+                        Date date = (Date)time22;
+                        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");//need to import the SinmpleDateFormat
+                        String time2 = format.format(date);
+                        pstmt.setString(4,time2);
+                    }
+                    
+                    
+           String selectedrouteno = null;
+           selectedrouteno = B_route_no_update.getSelectedItem().toString();
+            
+            pstmt.setString(5,selectedrouteno); 
+            pstmt.setString(6,busno_combobox.getSelectedItem().toString());
+            pstmt.executeUpdate();
+           int index = busno_combobox.getSelectedIndex();//declare int for catch index
+           busno_combobox.removeItemAt(index);
+           
+           busno_combobox.addItem(B_busno_update.getText());
+           JOptionPane.showMessageDialog(null, "Record updated Successfully");  
+            con.close();
+           jTabbedPane5.setSelectedIndex(0);
+         }
+           catch(Exception e)
+          {
+              JOptionPane.showMessageDialog(null,e);
+          }
+           
+
+    }//GEN-LAST:event_jButton45ActionPerformed
+
+    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane6.setSelectedIndex(1);
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
+
+           
+           
+              String sql = "select * from Route where Route_RouteNO = ?";
+           PreparedStatement pstmt = con.prepareStatement(sql);
+            
+            pstmt.setString(1,route_combobox.getSelectedItem().toString());
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next())
+            {
+                R_from.setText(rs.getString("Route_from"));
+                
+                R_city1.setText(rs.getString("Route_city1"));
+
+                R_city2.setText(rs.getString("Route_city2"));
+                R_city3.setText(rs.getString("Route_city3"));
+                R_to.setText(rs.getString("Route_To"));
+                                                
+                                               
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Record not found");
+            }
+            
+                     con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
+        // TODO add your handling code here:
+         try{       
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+         
+            String sql = "delete from Route where Route_RouteNO = ?"; 
+            PreparedStatement pstmt = con.prepareStatement(sql);
+     
+          String  selectedrouteno = route_combobox.getSelectedItem().toString(); 
+           
+          pstmt.setString(1,selectedrouteno); 
+          pstmt.executeUpdate();
+           JOptionPane.showMessageDialog(null, "Record Deleted Successfully");  
+            int index = route_combobox.getSelectedIndex();//declare int for catch index
+           route_combobox.removeItemAt(index);//remove item by select item
+           route_number.removeItem(selectedrouteno);
+           R_from.setText("");
+           R_city1.setText("");
+           R_city2.setText("");
+           R_city3.setText("");
+           R_to.setText("");
+           con.close();
+           
+            jTabbedPane5.setSelectedIndex(0);
+          }
+          catch(Exception e)
+          {
+              JOptionPane.showMessageDialog(null,e);
+          }
+    }//GEN-LAST:event_jButton47ActionPerformed
+
+    private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane6.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton48ActionPerformed
+
+    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+        // TODO add your handling code here:
+         try 
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+         
+            String sql = "update Route set Route_RouteNO = ?, Route_from = ?, Route_city1 = ?, Route_city2 = ?, Route_city3 = ?, Route_to = ? where Route_RouteNO = ?";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setString(1,R_route_update.getText());
+            pstmt.setString(2,R_from_update.getText());
+            pstmt.setString(3,R_city1_update.getText());
+            pstmt.setString(4,R_city2_update.getText());
+            pstmt.setString(5,R_city3_update.getText());
+            pstmt.setString(6,R_to_update.getText());
+            pstmt.setString(7,route_combobox.getSelectedItem().toString());
+            
+            pstmt.executeUpdate();
+           int index = route_combobox.getSelectedIndex();//declare int for catch index
+           route_combobox.removeItemAt(index);
+           
+           route_combobox.addItem(R_route_update.getText());
+           
+    
+           route_number.removeItem(route_combobox.getSelectedItem().toString());
+           
+           route_number.addItem(R_route_update.getText());
+           
+           JOptionPane.showMessageDialog(null, "Record updated Successfully");  
+   
+            
+            con.close();
+        }
+        catch(Exception e){
+          JOptionPane.showMessageDialog(null, e);
+        }
+                               
+    }//GEN-LAST:event_jButton49ActionPerformed
+
+    private void B_busno_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_busno_updateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_B_busno_updateActionPerformed
+
+    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane7.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton50ActionPerformed
+
+    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane7.setSelectedIndex(2);
+    }//GEN-LAST:event_jButton51ActionPerformed
+
+    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
+        // TODO add your handling code here:
+         try{       
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+         
+            String sql = "delete from User where User_name = ?"; 
+            PreparedStatement pstmt = con.prepareStatement(sql);
+     
+          String  selectedname = user_name.getSelectedItem().toString(); 
+           
+          pstmt.setString(1,selectedname); 
+          pstmt.executeUpdate();
+           JOptionPane.showMessageDialog(null, "Record Deleted Successfully");  
+            int index = user_name.getSelectedIndex();//declare int for catch index
+           user_name.removeItemAt(index);//remove item by select item
+           
+           con.close();
+           
+            jTabbedPane7.setSelectedIndex(0);
+          }
+          catch(Exception e)
+          {
+              JOptionPane.showMessageDialog(null,e);
+          }
+        
+    }//GEN-LAST:event_jButton52ActionPerformed
+
+    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
+        // TODO add your handling code here:
+         jTabbedPane4.setSelectedIndex(3);
+        
+    }//GEN-LAST:event_jButton53ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3453,14 +4492,24 @@ public class UserMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField B_arrive;
+    private javax.swing.JSpinner B_arrive_time_update;
+    private javax.swing.JTextField B_busno_update;
     private javax.swing.JTextField B_date;
     private javax.swing.JPanel B_date_update;
+    private javax.swing.JPanel B_date_update1;
     private javax.swing.JTextField B_from;
     private javax.swing.JComboBox<String> B_from_update;
+    private javax.swing.JTextField B_leave;
+    private javax.swing.JSpinner B_left_time_update;
     private javax.swing.JTextField B_name;
     private javax.swing.JComboBox<String> B_name_update;
     private javax.swing.JTextField B_no;
     private javax.swing.JComboBox<String> B_no_update;
+    private javax.swing.JComboBox<String> B_route_no_update;
+    private javax.swing.JTextField B_routeno;
+    private javax.swing.JTextField B_seats;
+    private javax.swing.JTextField B_seats_update;
     private javax.swing.JTextField B_time;
     private javax.swing.JComboBox<String> B_time_update;
     private javax.swing.JTextField B_to;
@@ -3476,6 +4525,17 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JTextField P_name_update;
     private javax.swing.JTextField P_number;
     private javax.swing.JTextField P_number_update;
+    private javax.swing.JTextField R_city1;
+    private javax.swing.JTextField R_city1_update;
+    private javax.swing.JTextField R_city2;
+    private javax.swing.JTextField R_city2_update;
+    private javax.swing.JTextField R_city3;
+    private javax.swing.JTextField R_city3_update;
+    private javax.swing.JTextField R_from;
+    private javax.swing.JTextField R_from_update;
+    private javax.swing.JTextField R_route_update;
+    private javax.swing.JTextField R_to;
+    private javax.swing.JTextField R_to_update;
     private javax.swing.JTextArea addressF;
     private javax.swing.JTabbedPane administration_panel;
     private javax.swing.JPanel administration_panel_bg;
@@ -3489,6 +4549,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> booking_to;
     private javax.swing.JTextField bus_number;
     private javax.swing.JComboBox<String> busno;
+    private javax.swing.JComboBox<String> busno_combobox;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField city_1;
     private javax.swing.JTextField city_2;
@@ -3532,7 +4593,21 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton40;
+    private javax.swing.JButton jButton41;
+    private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
+    private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
+    private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton51;
+    private javax.swing.JButton jButton52;
+    private javax.swing.JButton jButton53;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -3609,7 +4684,18 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
+    private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
+    private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -3640,7 +4726,20 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel33;
     private javax.swing.JPanel jPanel34;
     private javax.swing.JPanel jPanel35;
+    private javax.swing.JPanel jPanel36;
+    private javax.swing.JPanel jPanel37;
+    private javax.swing.JPanel jPanel38;
+    private javax.swing.JPanel jPanel39;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel40;
+    private javax.swing.JPanel jPanel41;
+    private javax.swing.JPanel jPanel42;
+    private javax.swing.JPanel jPanel43;
+    private javax.swing.JPanel jPanel44;
+    private javax.swing.JPanel jPanel45;
+    private javax.swing.JPanel jPanel46;
+    private javax.swing.JPanel jPanel47;
+    private javax.swing.JPanel jPanel48;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -3659,12 +4758,17 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane10;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTabbedPane jTabbedPane5;
+    private javax.swing.JTabbedPane jTabbedPane6;
+    private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTabbedPane mainPanel;
     private javax.swing.JTextField nameF;
     private javax.swing.JTextField no_of_seats;
@@ -3678,6 +4782,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordF;
     private javax.swing.JTextField phoneNoF;
     private javax.swing.JTextField positionF;
+    private javax.swing.JComboBox<String> route_combobox;
     private javax.swing.JTextField route_no;
     private javax.swing.JComboBox<String> route_number;
     private javax.swing.JPanel searchPanel;
@@ -3686,6 +4791,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JSpinner time_of_arrive;
     private javax.swing.JSpinner time_of_leave;
     private javax.swing.JLabel timelabel;
+    private javax.swing.JComboBox<String> user_name;
     private javax.swing.JTextField usernameF;
     // End of variables declaration//GEN-END:variables
 }

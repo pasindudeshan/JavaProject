@@ -43,7 +43,7 @@ public class UserMain extends javax.swing.JFrame {
         ShowTimeLabel();
         ShowRouteNumber();
          UserAccountShow();
-  
+         InvoiceNoStatus(); 
         
     } 
     
@@ -113,6 +113,44 @@ public class UserMain extends javax.swing.JFrame {
                 long id = Long.parseLong(rs.getString("Max(Passenger_id)").substring(2,rs.getString("Max(Passenger_id)").length()));
                 id++;
                 id_label.setText("P-" + String.format("%07d",id));
+            }
+            
+        }
+        catch(SQLException e)
+        {
+            Logger.getLogger(UserMain.class.getName()).log(Level.SEVERE,null,e);
+        }
+        catch(ClassNotFoundException e)
+        {
+            Logger.getLogger(UserMain.class.getName()).log(Level.SEVERE,null,e);
+        }
+        
+        
+    }
+    
+    
+        public void InvoiceNoStatus() 
+    {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
+            PreparedStatement pstmt ;
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("select Max(Status_invoice) from Status");
+            rs.next();
+            
+            rs.getString("Max(Status_invoice)");
+            
+            if(rs.getString("Max(Status_invoice)") == null)
+            {
+                statuslabel.setText("S-0000001");
+            }
+            else
+            {
+                long id = Long.parseLong(rs.getString("Max(Status_invoice)").substring(2,rs.getString("Max(Status_invoice)").length()));
+                id++;
+                statuslabel.setText("S-" + String.format("%07d",id));
             }
             
         }
@@ -331,7 +369,7 @@ public class UserMain extends javax.swing.JFrame {
                String Sbusno = rs.getString("Bus_BusNo");//here Bus_Busno is actual column name of the table
                busno.addItem(Sbusno);//add into jcomboBox
                busno_combobox.addItem(Sbusno);
-     
+               busno1.addItem(Sbusno);
            }
            
            con.close();
@@ -512,13 +550,13 @@ public class UserMain extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
                    
-            String sql = "select User_name from User";
+            String sql = "select User_username from User";
             PreparedStatement pst = con.prepareStatement(sql);
            ResultSet rs = pst.executeQuery();//ResultSet is the return typed
            //above statement we will get all Busno from table class
            while(rs.next())
            {
-               String name = rs.getString("User_name");//here Bus_Busno is actual column name of the table
+               String name = rs.getString("User_username");//here Bus_Busno is actual column name of the table
                user_name.addItem(name);//add into jcomboBox
      
            }
@@ -607,7 +645,9 @@ public class UserMain extends javax.swing.JFrame {
         jSpinner2 = new javax.swing.JSpinner(sm1);
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
-        jLabel16 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        statuslabel = new javax.swing.JLabel();
+        jLabel89 = new javax.swing.JLabel();
         bookingMainPanel = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -843,8 +883,22 @@ public class UserMain extends javax.swing.JFrame {
         user_name = new javax.swing.JComboBox<>();
         jButton52 = new javax.swing.JButton();
         jPanel48 = new javax.swing.JPanel();
+        jLabel84 = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        busno1 = new javax.swing.JComboBox<>();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+        statusid = new javax.swing.JComboBox<>();
+        jLabel86 = new javax.swing.JLabel();
+        jLabel87 = new javax.swing.JLabel();
+        arr_at = new javax.swing.JTextField();
+        left_at = new javax.swing.JTextField();
+        jButton54 = new javax.swing.JButton();
+        jButton55 = new javax.swing.JButton();
+        jButton56 = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
         jButton53 = new javax.swing.JButton();
+        jLabel88 = new javax.swing.JLabel();
         jPanel34 = new javax.swing.JPanel();
         jLabel50 = new javax.swing.JLabel();
         nameF = new javax.swing.JTextField();
@@ -869,6 +923,7 @@ public class UserMain extends javax.swing.JFrame {
         jLabel58 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Bus Management System - Home");
         setPreferredSize(new java.awt.Dimension(1000, 610));
         setResizable(false);
 
@@ -1250,43 +1305,43 @@ public class UserMain extends javax.swing.JFrame {
         statusPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel18.setText("Date         : ");
+        jLabel18.setText("Status ID         : ");
         jLabel18.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        statusPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 140, 30));
+        statusPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 140, 30));
 
         jDateChooser1.setBackground(new java.awt.Color(51, 51, 255));
         jDateChooser1.setDateFormatString("yyyy-MM-dd");
-        statusPanel.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 120, 30));
+        statusPanel.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 120, 30));
 
         jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel13.setText("Bus No     :");
         jLabel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        statusPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 140, 30));
+        statusPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 30));
 
         busno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 busnoActionPerformed(evt);
             }
         });
-        statusPanel.add(busno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 120, 30));
+        statusPanel.add(busno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 120, 30));
 
         jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel14.setText("Arrive At   :");
         jLabel14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        statusPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 140, 30));
+        statusPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 140, 30));
 
         jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel15.setText("Left At :");
         jLabel15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        statusPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 140, 30));
+        statusPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 140, 30));
 
         JSpinner.DateEditor de = new JSpinner.DateEditor(jSpinner1,"HH:mm:ss");
         jSpinner1.setEditor(de);
-        statusPanel.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 120, 30));
+        statusPanel.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 120, 30));
 
         JSpinner.DateEditor de1 = new JSpinner.DateEditor(jSpinner2,"HH:mm:ss");
         jSpinner2.setEditor(de1);
-        statusPanel.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 120, 30));
+        statusPanel.add(jSpinner2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 120, 30));
 
         jButton17.setText("Submit");
         jButton17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1295,15 +1350,25 @@ public class UserMain extends javax.swing.JFrame {
                 jButton17ActionPerformed(evt);
             }
         });
-        statusPanel.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 90, 40));
+        statusPanel.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 90, 40));
 
         jButton18.setText("Clear");
         jButton18.setActionCommand("");
         jButton18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        statusPanel.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 90, 40));
+        statusPanel.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 90, 40));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
-        statusPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 390));
+        jLabel83.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel83.setText("Date         : ");
+        jLabel83.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        statusPanel.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, 30));
+
+        statuslabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        statuslabel.setForeground(new java.awt.Color(0, 0, 255));
+        statuslabel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        statusPanel.add(statuslabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 150, 30));
+
+        jLabel89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
+        statusPanel.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 390));
 
         mainPanel.addTab("tab1", statusPanel);
 
@@ -2981,11 +3046,11 @@ public class UserMain extends javax.swing.JFrame {
         jPanel46.setLayout(jPanel46Layout);
         jPanel46Layout.setHorizontalGroup(
             jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel46Layout.setVerticalGroup(
             jPanel46Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         jTabbedPane7.addTab("tab1", jPanel46);
@@ -3011,7 +3076,7 @@ public class UserMain extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(user_name, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel47Layout.setVerticalGroup(
             jPanel47Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3027,16 +3092,89 @@ public class UserMain extends javax.swing.JFrame {
 
         jTabbedPane7.addTab("tab2", jPanel47);
 
-        javax.swing.GroupLayout jPanel48Layout = new javax.swing.GroupLayout(jPanel48);
-        jPanel48.setLayout(jPanel48Layout);
-        jPanel48Layout.setHorizontalGroup(
-            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
-        );
-        jPanel48Layout.setVerticalGroup(
-            jPanel48Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 230, Short.MAX_VALUE)
-        );
+        jPanel48.setLayout(null);
+
+        jLabel84.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jLabel84.setText("Status ID   : ");
+        jLabel84.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel48.add(jLabel84);
+        jLabel84.setBounds(10, 91, 111, 19);
+
+        jLabel85.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel85.setText("Date         : ");
+        jLabel85.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel48.add(jLabel85);
+        jLabel85.setBounds(10, 11, 111, 20);
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel16.setText("Bus No     :");
+        jLabel16.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel48.add(jLabel16);
+        jLabel16.setBounds(10, 43, 111, 30);
+
+        busno1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busno1ActionPerformed(evt);
+            }
+        });
+        jPanel48.add(busno1);
+        busno1.setBounds(139, 48, 114, 20);
+
+        jDateChooser3.setBackground(new java.awt.Color(51, 51, 255));
+        jDateChooser3.setDateFormatString("yyyy-MM-dd");
+        jPanel48.add(jDateChooser3);
+        jDateChooser3.setBounds(139, 11, 103, 26);
+
+        statusid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                statusidActionPerformed(evt);
+            }
+        });
+        jPanel48.add(statusid);
+        statusid.setBounds(139, 91, 114, 23);
+
+        jLabel86.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel86.setText("Arrive At   :");
+        jLabel86.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel48.add(jLabel86);
+        jLabel86.setBounds(10, 127, 111, 22);
+
+        jLabel87.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel87.setText("Left At :");
+        jLabel87.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel48.add(jLabel87);
+        jLabel87.setBounds(10, 160, 111, 20);
+        jPanel48.add(arr_at);
+        arr_at.setBounds(139, 128, 114, 20);
+        jPanel48.add(left_at);
+        left_at.setBounds(139, 165, 114, 20);
+
+        jButton54.setText("Search");
+        jButton54.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton54ActionPerformed(evt);
+            }
+        });
+        jPanel48.add(jButton54);
+        jButton54.setBounds(30, 200, 88, 23);
+
+        jButton55.setText("Delete");
+        jButton55.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton55ActionPerformed(evt);
+            }
+        });
+        jPanel48.add(jButton55);
+        jButton55.setBounds(190, 200, 88, 23);
+
+        jButton56.setText("OK");
+        jButton56.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton56ActionPerformed(evt);
+            }
+        });
+        jPanel48.add(jButton56);
+        jButton56.setBounds(260, 90, 60, 23);
 
         jTabbedPane7.addTab("tab3", jPanel48);
 
@@ -3050,8 +3188,7 @@ public class UserMain extends javax.swing.JFrame {
                     .addComponent(jButton50, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton51, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane7)
-                .addContainerGap())
+                .addComponent(jTabbedPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE))
         );
         jPanel45Layout.setVerticalGroup(
             jPanel45Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3092,7 +3229,7 @@ public class UserMain extends javax.swing.JFrame {
         jButton53.setBackground(new java.awt.Color(255, 153, 153));
         jButton53.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton53.setForeground(new java.awt.Color(51, 102, 255));
-        jButton53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/route (1).png"))); // NOI18N
+        jButton53.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete-message.png"))); // NOI18N
         jButton53.setText("Delete");
         jButton53.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, null, new java.awt.Color(255, 102, 255), null, null));
         jButton53.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -3103,6 +3240,10 @@ public class UserMain extends javax.swing.JFrame {
         });
         jPanel36.add(jButton53);
         jButton53.setBounds(20, 210, 140, 40);
+
+        jLabel88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
+        jPanel36.add(jLabel88);
+        jLabel88.setBounds(0, 0, 860, 390);
 
         javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
         jPanel33.setLayout(jPanel33Layout);
@@ -3490,45 +3631,48 @@ public class UserMain extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
-            String sql = "insert into status values(?,?,?,?)";
+            String sql = "insert into status values(?,?,?,?,?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
-            pstmt.setString(1,((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
+            
+            pstmt.setString(1,statuslabel.getText());
+            pstmt.setString(2,((JTextField)jDateChooser1.getDateEditor().getUiComponent()).getText());
             Object time11=  jSpinner1.getValue();
             Object time22=  jSpinner2.getValue();
              
-            String sql1 = "select * from Bus";
-            PreparedStatement pst = con.prepareStatement(sql1);
-           ResultSet rs = pst.executeQuery();//ResultSet is the return typed
-           
-           while(rs.next())
-           {
-               String Sbusno = rs.getString("Bus_BusNo");
-               busno.addItem(Sbusno);
-           }
+//            String sql1 = "select * from Bus";
+//            PreparedStatement pst = con.prepareStatement(sql1);
+//           ResultSet rs = pst.executeQuery();//ResultSet is the return typed
+//           
+//           while(rs.next())
+//           {
+//               String Sbusno = rs.getString("Bus_BusNo");
+//               busno.addItem(Sbusno);
+//           }
             
             
            String selectedbusno = null;
            selectedbusno = busno.getSelectedItem().toString();
             
-            pstmt.setString(2,selectedbusno);  
+            pstmt.setString(3,selectedbusno);  
             
                     if (time11 instanceof Date) {
                         Date date = (Date)time11;
                         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");//need to import the SinmpleDateFormat
                         String time1 = format.format(date);
-                        pstmt.setString(3,time1);
+                        pstmt.setString(4,time1);
                     }
 
                     if (time22 instanceof Date) {
                         Date date = (Date)time22;
                         SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");//need to import the SinmpleDateFormat
                         String time2 = format.format(date);
-                        pstmt.setString(4,time2);
+                        pstmt.setString(5,time2);
                     }
             
  
             pstmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "isertion succesful");
+            JOptionPane.showMessageDialog(null, "Insertion succesful");
+             InvoiceNoStatus(); 
         }
         catch(Exception e){
           JOptionPane.showMessageDialog(null, e);
@@ -3644,10 +3788,20 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
+        int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to log out ?","Log out",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
         dispose();
         MainScreen main = new  MainScreen();
         main.setLocationRelativeTo(null);
         main.setVisible(true);
+        }
+        else
+        {
+            
+        }
+        
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -3763,7 +3917,11 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
-                   try{       
+             int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Save ?","Saved",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+        try{       
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
@@ -3805,6 +3963,9 @@ public class UserMain extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(null,e);
           }
         
+        }        
+        
+        
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void P_name_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_P_name_updateActionPerformed
@@ -3827,7 +3988,11 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         // TODO add your handling code here:
-            try{       
+         int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Save ?","Saved",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+        try{       
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
@@ -3865,12 +4030,20 @@ public class UserMain extends javax.swing.JFrame {
           {
               JOptionPane.showMessageDialog(null,e);
           }
+        }   
+        
+        
         
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
         // TODO add your handling code here:
-            try{       
+          
+         int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Delete ?","Deleted",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+         try{       
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
@@ -3897,12 +4070,17 @@ public class UserMain extends javax.swing.JFrame {
           {
               JOptionPane.showMessageDialog(null,e);
           }
+        }
+       
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
         // TODO add your handling code here:
-      
-                    try{       
+       int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Delete ?","Deleted",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+         try{       
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
@@ -3933,6 +4111,8 @@ public class UserMain extends javax.swing.JFrame {
           {
               JOptionPane.showMessageDialog(null,e);
           }
+        }
+                   
         
     }//GEN-LAST:event_jButton27ActionPerformed
 
@@ -4022,7 +4202,16 @@ public class UserMain extends javax.swing.JFrame {
             String pwd = new String(passwordF.getPassword());  // to get the input from  the password field
             pstmt.setString(8,pwd);
             pstmt.executeUpdate();
-            JOptionPane.showMessageDialog(null, "isertion succesful");
+            JOptionPane.showMessageDialog(null, "Insertion succesful");
+            
+            user_name.addItem(usernameF.getText());
+            
+            nameF.setText("");
+            phoneNoF.setText("");
+            positionF.setText("");
+            addressF.setText("");
+            usernameF.setText("");
+            passwordF.setText("");
         }
         catch(Exception e){
             JOptionPane.showMessageDialog(null, e);
@@ -4032,6 +4221,12 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
         // TODO add your handling code here:
+        nameF.setText("");
+        phoneNoF.setText("");
+        positionF.setText("");
+        addressF.setText("");
+        usernameF.setText("");
+        passwordF.setText("");
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
@@ -4084,6 +4279,7 @@ public class UserMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Insertion succesful");
             UpdateStatusBookingid();
             UpdateBookingTime( time1);//to add the time to the booking panel
+            busno1.addItem(bus_number.getText());
             con.close();
         }
         catch(Exception e){
@@ -4192,7 +4388,11 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
         // TODO add your handling code here:
-                    try{       
+        int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Delete ?","Deleted",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+ try{       
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
@@ -4219,6 +4419,12 @@ public class UserMain extends javax.swing.JFrame {
           {
               JOptionPane.showMessageDialog(null,e);
           }
+        }
+ 
+        
+              
+        
+       
     }//GEN-LAST:event_jButton43ActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
@@ -4232,7 +4438,11 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
         // TODO add your handling code here:
-         try{       
+        int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Save ?","Saved",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+ try{       
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
@@ -4289,6 +4499,9 @@ public class UserMain extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(null,e);
           }
            
+        }
+        
+        
 
     }//GEN-LAST:event_jButton45ActionPerformed
 
@@ -4334,7 +4547,11 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
         // TODO add your handling code here:
-         try{       
+         int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Delete ?","Deleted",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+        try{       
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
@@ -4362,6 +4579,9 @@ public class UserMain extends javax.swing.JFrame {
           {
               JOptionPane.showMessageDialog(null,e);
           }
+        }
+        
+         
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
@@ -4371,7 +4591,11 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
         // TODO add your handling code here:
-         try 
+        int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Save ?","Saved",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+            try 
         {
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
@@ -4405,6 +4629,8 @@ public class UserMain extends javax.swing.JFrame {
         catch(Exception e){
           JOptionPane.showMessageDialog(null, e);
         }
+        }
+        
                                
     }//GEN-LAST:event_jButton49ActionPerformed
 
@@ -4424,11 +4650,15 @@ public class UserMain extends javax.swing.JFrame {
 
     private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
         // TODO add your handling code here:
-         try{       
+        int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Delete ?","Deleted",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+        try{       
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
-            String sql = "delete from User where User_name = ?"; 
+            String sql = "delete from User where User_username = ?"; 
             PreparedStatement pstmt = con.prepareStatement(sql);
      
           String  selectedname = user_name.getSelectedItem().toString(); 
@@ -4448,6 +4678,9 @@ public class UserMain extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(null,e);
           }
         
+        }
+        
+        
     }//GEN-LAST:event_jButton52ActionPerformed
 
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
@@ -4455,6 +4688,132 @@ public class UserMain extends javax.swing.JFrame {
          jTabbedPane4.setSelectedIndex(3);
         
     }//GEN-LAST:event_jButton53ActionPerformed
+
+    private void busno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busno1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_busno1ActionPerformed
+
+    private void statusidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusidActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_statusidActionPerformed
+
+    private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
+        // TODO add your handling code here:
+         statusid.removeAllItems();
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
+
+           
+          
+              String sql = "select Status_invoice from Status where Status_date = ? and Status_BusNo = ? ";
+           PreparedStatement pstmt = con.prepareStatement(sql);
+          
+           pstmt.setString(1,((JTextField)jDateChooser3.getDateEditor().getUiComponent()).getText());
+            pstmt.setString(2,busno1.getSelectedItem().toString());
+            ResultSet rs = pstmt.executeQuery();
+          
+            
+            sql = "select Status_invoice from Status where Status_date = ? and Status_BusNo = ? ";
+            pstmt = con.prepareStatement(sql);
+            pstmt.setString(1,((JTextField)jDateChooser3.getDateEditor().getUiComponent()).getText());
+            pstmt.setString(2,busno1.getSelectedItem().toString());
+            ResultSet rs1 = pstmt.executeQuery();
+          
+
+
+
+                                               
+            if(rs.next())
+            {                                
+
+                
+                while(rs1.next())
+                {
+                    String combo_box = rs1.getString("Status_invoice");//here Bus_Busno is actual column name of the table
+                    statusid.addItem(combo_box);//add into jcomboBox
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Record not found");
+            }
+            
+                     con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
+    }//GEN-LAST:event_jButton54ActionPerformed
+
+    private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton55ActionPerformed
+        // TODO add your handling code here:
+         int YesorNo = JOptionPane.showConfirmDialog(null,"Do you want to Delete ?","Deleted",JOptionPane.YES_NO_OPTION);
+        
+        if(YesorNo == 0)
+        {
+        try{       
+            Class.forName("com.mysql.jdbc.Driver");
+            java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
+         
+            String sql = "delete from Status where Status_invoice = ?"; 
+            PreparedStatement pstmt = con.prepareStatement(sql);
+     
+          String  selectedbusno = statusid.getSelectedItem().toString(); 
+           
+          pstmt.setString(1,selectedbusno); 
+          pstmt.executeUpdate();
+           JOptionPane.showMessageDialog(null, "Record Deleted Successfully");  
+            int index = statusid.getSelectedIndex();//declare int for catch index
+           statusid.removeItemAt(index);//remove item by select item
+           
+           arr_at.setText("");
+           left_at.setText("");
+           con.close();
+           
+           
+          }
+          catch(Exception e)
+          {
+              JOptionPane.showMessageDialog(null,e);
+          }
+        }
+    }//GEN-LAST:event_jButton55ActionPerformed
+
+    private void jButton56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton56ActionPerformed
+        // TODO add your handling code here:
+                arr_at.setText("");
+        left_at.setText("");
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
+
+           
+           
+             String sql = "select Status_ArriveAt,Status_LeftAt from Status where Status_invoice = ?";
+           PreparedStatement pstmt = con.prepareStatement(sql);
+            
+            pstmt.setString(1,statusid.getSelectedItem().toString());
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next())
+            {
+                arr_at.setText(rs.getString("Status_ArriveAt"));
+                
+                left_at.setText(rs.getString("Status_LeftAt"));
+
+                
+            }
+
+                     con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_jButton56ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4539,6 +4898,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JTextArea addressF;
     private javax.swing.JTabbedPane administration_panel;
     private javax.swing.JPanel administration_panel_bg;
+    private javax.swing.JTextField arr_at;
     private javax.swing.JPanel bookingMainPanel;
     private javax.swing.JPanel bookingPanel;
     private javax.swing.JComboBox<String> booking_busno;
@@ -4549,6 +4909,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> booking_to;
     private javax.swing.JTextField bus_number;
     private javax.swing.JComboBox<String> busno;
+    private javax.swing.JComboBox<String> busno1;
     private javax.swing.JComboBox<String> busno_combobox;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField city_1;
@@ -4608,12 +4969,16 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton52;
     private javax.swing.JButton jButton53;
+    private javax.swing.JButton jButton54;
+    private javax.swing.JButton jButton55;
+    private javax.swing.JButton jButton56;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooser2;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
     private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -4696,6 +5061,13 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
+    private javax.swing.JLabel jLabel88;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -4769,6 +5141,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField left_at;
     private javax.swing.JTabbedPane mainPanel;
     private javax.swing.JTextField nameF;
     private javax.swing.JTextField no_of_seats;
@@ -4788,6 +5161,8 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JPanel searchPanel;
     private javax.swing.JTextField start_from;
     private javax.swing.JPanel statusPanel;
+    private javax.swing.JComboBox<String> statusid;
+    private javax.swing.JLabel statuslabel;
     private javax.swing.JSpinner time_of_arrive;
     private javax.swing.JSpinner time_of_leave;
     private javax.swing.JLabel timelabel;

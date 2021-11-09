@@ -44,6 +44,7 @@ public class UserMain extends javax.swing.JFrame {
         ShowRouteNumber();
          UserAccountShow();
          InvoiceNoStatus(); 
+         BookingUpdate();
         
     } 
     
@@ -175,49 +176,49 @@ public class UserMain extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
           
-            //2nd combo box
-           String sql = "select Route_city1 from Route";
-            PreparedStatement pst = con.prepareStatement(sql);
-           String combo_box;
-
-           ResultSet rs2 = pst.executeQuery();//ResultSet is the return typed
-           //above statement we will get all Busno from table class
-            while(rs2.next())
-           {
-              combo_box = rs2.getString("Route_city1");//here Bus_Busno is actual column name of the table
-              booking_to.addItem(combo_box);//add into jcomboBox
-           } 
-        
-           sql = "select Route_city2 from Route";
-           PreparedStatement pst11 = con.prepareStatement(sql);
-           rs2 = pst11.executeQuery();
-           while(rs2.next())
-           {
-              combo_box = rs2.getString("Route_city2");//here Bus_Busno is actual column name of the table
-              booking_to.addItem(combo_box);//add into jcomboBox
-           }
-           
-           sql = "select Route_city3 from Route";   
-          PreparedStatement pst12 = con.prepareStatement(sql);
-           rs2 = pst12.executeQuery();
-           while(rs2.next())
-           {
-              combo_box = rs2.getString("Route_city3");//here Bus_Busno is actual column name of the table
-              booking_to.addItem(combo_box);//add into jcomboBox
-           }
-                    
-            sql = "select Route_To from Route";            
-           PreparedStatement pst13 = con.prepareStatement(sql);
-           rs2 = pst13.executeQuery();
-           while(rs2.next())
-           {
-              combo_box = rs2.getString("Route_To");//here Bus_Busno is actual column name of the table
-              booking_to.addItem(combo_box);//add into jcomboBox
-           }
-           
+//            //2nd combo box
+//           String sql = "select Route_city1 from Route";
+//            PreparedStatement pst = con.prepareStatement(sql);
+          String combo_box;
+//
+//           ResultSet rs2 = pst.executeQuery();//ResultSet is the return typed
+//           //above statement we will get all Busno from table class
+//            while(rs2.next())
+//           {
+//              combo_box = rs2.getString("Route_city1");//here Bus_Busno is actual column name of the table
+//              booking_to.addItem(combo_box);//add into jcomboBox
+//           } 
+//        
+//           sql = "select Route_city2 from Route";
+//           PreparedStatement pst11 = con.prepareStatement(sql);
+//           rs2 = pst11.executeQuery();
+//           while(rs2.next())
+//           {
+//              combo_box = rs2.getString("Route_city2");//here Bus_Busno is actual column name of the table
+//              booking_to.addItem(combo_box);//add into jcomboBox
+//           }
+//           
+//           sql = "select Route_city3 from Route";   
+//          PreparedStatement pst12 = con.prepareStatement(sql);
+//           rs2 = pst12.executeQuery();
+//           while(rs2.next())
+//           {
+//              combo_box = rs2.getString("Route_city3");//here Bus_Busno is actual column name of the table
+//              booking_to.addItem(combo_box);//add into jcomboBox
+//           }
+//                    
+//            sql = "select Route_To from Route";            
+//           PreparedStatement pst13 = con.prepareStatement(sql);
+//           rs2 = pst13.executeQuery();
+//           while(rs2.next())
+//           {
+//              combo_box = rs2.getString("Route_To");//here Bus_Busno is actual column name of the table
+//              booking_to.addItem(combo_box);//add into jcomboBox
+//           }
+//           
           
            //3rd combo box
-            sql = "select Bus_BusNo from Bus";
+           String sql = "select Bus_BusNo from Bus";
            PreparedStatement pst3 = con.prepareStatement(sql);
            ResultSet rs3 = pst3.executeQuery();//ResultSet is the return typed
            //above statement we will get all Busno from table class
@@ -227,19 +228,19 @@ public class UserMain extends javax.swing.JFrame {
               booking_busno.addItem(combo_box);//add into jcomboBox
            }
            
-           
-           //4rd combo box
-           sql = "select Bus_Time_Of_Arrive from Bus";
-           PreparedStatement pst4 = con.prepareStatement(sql);
-           ResultSet rs4 = pst4.executeQuery();//ResultSet is the return typed
-           //above statement we will get all Busno from table class
-           
-           while(rs4.next())
-           {
-              combo_box = rs4.getString("Bus_Time_Of_Arrive");//need to book the seat at the arrive time not the leave time
-              booking_time.addItem(combo_box);//add into jcomboBox
-           }
-           
+//           
+//           //4rd combo box
+//           sql = "select Bus_Time_Of_Arrive from Bus";
+//           PreparedStatement pst4 = con.prepareStatement(sql);
+//           ResultSet rs4 = pst4.executeQuery();//ResultSet is the return typed
+//           //above statement we will get all Busno from table class
+//           
+//           while(rs4.next())
+//           {
+//              combo_box = rs4.getString("Bus_Time_Of_Arrive");//need to book the seat at the arrive time not the leave time
+//              booking_time.addItem(combo_box);//add into jcomboBox
+//           }
+//           
            sql = "select Passenger_id from Passenger";
            PreparedStatement pst5 = con.prepareStatement(sql);
            ResultSet rs5 = pst5.executeQuery();//ResultSet is the return typed
@@ -267,48 +268,48 @@ public class UserMain extends javax.swing.JFrame {
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
           
             //2nd combo box
-           String sql = "select Route_city1 from Route";
-            PreparedStatement pst = con.prepareStatement(sql);
+//           String sql = "select Route_city1 from Route";
+//            PreparedStatement pst = con.prepareStatement(sql);
            String combo_box;
 
-           ResultSet rs2 = pst.executeQuery();//ResultSet is the return typed
-           //above statement we will get all Busno from table class
-            while(rs2.next())
-           {
-              combo_box = rs2.getString("Route_city1");//here Bus_Busno is actual column name of the table
-              B_to_update.addItem(combo_box);//add into jcomboBox
-           } 
-        
-           sql = "select Route_city2 from Route";
-           PreparedStatement pst11 = con.prepareStatement(sql);
-           rs2 = pst11.executeQuery();
-           while(rs2.next())
-           {
-              combo_box = rs2.getString("Route_city2");//here Bus_Busno is actual column name of the table
-              B_to_update.addItem(combo_box);//add into jcomboBox
-           }
-           
-           sql = "select Route_city3 from Route";   
-          PreparedStatement pst12 = con.prepareStatement(sql);
-           rs2 = pst12.executeQuery();
-           while(rs2.next())
-           {
-              combo_box = rs2.getString("Route_city3");//here Bus_Busno is actual column name of the table
-              B_to_update.addItem(combo_box);//add into jcomboBox
-           }
-                    
-            sql = "select Route_To from Route";            
-           PreparedStatement pst13 = con.prepareStatement(sql);
-           rs2 = pst13.executeQuery();
-           while(rs2.next())
-           {
-              combo_box = rs2.getString("Route_To");//here Bus_Busno is actual column name of the table
-              B_to_update.addItem(combo_box);//add into jcomboBox
-           }
+//           ResultSet rs2 = pst.executeQuery();//ResultSet is the return typed
+//           //above statement we will get all Busno from table class
+//            while(rs2.next())
+//           {
+//              combo_box = rs2.getString("Route_city1");//here Bus_Busno is actual column name of the table
+//              B_to_update.addItem(combo_box);//add into jcomboBox
+//           } 
+//        
+//           sql = "select Route_city2 from Route";
+//           PreparedStatement pst11 = con.prepareStatement(sql);
+//           rs2 = pst11.executeQuery();
+//           while(rs2.next())
+//           {
+//              combo_box = rs2.getString("Route_city2");//here Bus_Busno is actual column name of the table
+//              B_to_update.addItem(combo_box);//add into jcomboBox
+//           }
+//           
+//           sql = "select Route_city3 from Route";   
+//          PreparedStatement pst12 = con.prepareStatement(sql);
+//           rs2 = pst12.executeQuery();
+//           while(rs2.next())
+//           {
+//              combo_box = rs2.getString("Route_city3");//here Bus_Busno is actual column name of the table
+//              B_to_update.addItem(combo_box);//add into jcomboBox
+//           }
+//                    
+//            sql = "select Route_To from Route";            
+//           PreparedStatement pst13 = con.prepareStatement(sql);
+//           rs2 = pst13.executeQuery();
+//           while(rs2.next())
+//           {
+//              combo_box = rs2.getString("Route_To");//here Bus_Busno is actual column name of the table
+//              B_to_update.addItem(combo_box);//add into jcomboBox
+//           }
            
           
            //3rd combo box
-            sql = "select Bus_BusNo from Bus";
+           String sql = "select Bus_BusNo from Bus";
            PreparedStatement pst3 = con.prepareStatement(sql);
            ResultSet rs3 = pst3.executeQuery();//ResultSet is the return typed
            //above statement we will get all Busno from table class
@@ -319,18 +320,18 @@ public class UserMain extends javax.swing.JFrame {
            }
            
            
-           //4rd combo box
-           sql = "select Bus_Time_Of_Arrive from Bus";
-           PreparedStatement pst4 = con.prepareStatement(sql);
-           ResultSet rs4 = pst4.executeQuery();//ResultSet is the return typed
-           //above statement we will get all Busno from table class
-           
-           while(rs4.next())
-           {
-              combo_box = rs4.getString("Bus_TimeOfArrive");//here Bus_Busno is actual column name of the table
-              B_time_update.addItem(combo_box);//add into jcomboBox
-           }
-           
+//           //4rd combo box
+//           sql = "select Bus_Time_Of_Arrive from Bus";
+//           PreparedStatement pst4 = con.prepareStatement(sql);
+//           ResultSet rs4 = pst4.executeQuery();//ResultSet is the return typed
+//           //above statement we will get all Busno from table class
+//           
+//           while(rs4.next())
+//           {
+//              combo_box = rs4.getString("Bus_Time_Of_Arrive");//here Bus_Busno is actual column name of the table
+//              B_time_update.addItem(combo_box);//add into jcomboBox
+//           }
+//           
            //5th combo box
            sql = "select Passenger_id from Passenger";
            PreparedStatement pst5 = con.prepareStatement(sql);
@@ -893,9 +894,7 @@ public class UserMain extends javax.swing.JFrame {
         jLabel87 = new javax.swing.JLabel();
         arr_at = new javax.swing.JTextField();
         left_at = new javax.swing.JTextField();
-        jButton54 = new javax.swing.JButton();
         jButton55 = new javax.swing.JButton();
-        jButton56 = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
         jButton53 = new javax.swing.JButton();
         jLabel88 = new javax.swing.JLabel();
@@ -981,7 +980,7 @@ public class UserMain extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 2, 810, 160));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(187, 2, 810, 150));
 
         jPanel5.setBackground(new java.awt.Color(255, 102, 102));
         jPanel5.setBorder(new javax.swing.border.MatteBorder(null));
@@ -1101,10 +1100,11 @@ public class UserMain extends javax.swing.JFrame {
         });
         jPanel16.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 5, 120, 30));
 
-        jPanel5.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 170, -1));
+        jPanel5.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 170, -1));
 
         jPanel35.setBackground(new java.awt.Color(255, 102, 102));
         jPanel35.setToolTipText("");
+        jPanel35.setLayout(null);
 
         administration_panel.setBackground(new java.awt.Color(255, 102, 102));
 
@@ -1118,7 +1118,7 @@ public class UserMain extends javax.swing.JFrame {
         );
         jPanel27Layout.setVerticalGroup(
             jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 244, Short.MAX_VALUE)
+            .addGap(0, 212, Short.MAX_VALUE)
         );
 
         administration_panel.addTab("tab1", jPanel27);
@@ -1166,7 +1166,7 @@ public class UserMain extends javax.swing.JFrame {
         );
         jPanel26Layout.setVerticalGroup(
             jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+            .addComponent(jButton30, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel26Layout.createSequentialGroup()
                 .addGroup(jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1242,52 +1242,41 @@ public class UserMain extends javax.swing.JFrame {
                 .addComponent(jLabel46, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addComponent(jPanel29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 99, Short.MAX_VALUE))
+                .addGap(0, 61, Short.MAX_VALUE))
             .addGroup(administration_panel_bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(administration_panel_bgLayout.createSequentialGroup()
                     .addGap(49, 49, 49)
                     .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(62, 62, 62)
                     .addComponent(jPanel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(49, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
         jPanel28.setLayout(jPanel28Layout);
         jPanel28Layout.setHorizontalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 175, Short.MAX_VALUE)
+            .addGap(0, 190, Short.MAX_VALUE)
             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel28Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(administration_panel_bg, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         jPanel28Layout.setVerticalGroup(
             jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 244, Short.MAX_VALUE)
+            .addGap(0, 226, Short.MAX_VALUE)
             .addGroup(jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel28Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(administration_panel_bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         administration_panel.addTab("tab2", jPanel28);
 
-        javax.swing.GroupLayout jPanel35Layout = new javax.swing.GroupLayout(jPanel35);
-        jPanel35.setLayout(jPanel35Layout);
-        jPanel35Layout.setHorizontalGroup(
-            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(administration_panel)
-        );
-        jPanel35Layout.setVerticalGroup(
-            jPanel35Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel35Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(administration_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel35.add(administration_panel);
+        administration_panel.setBounds(0, 0, 180, 240);
 
         jPanel5.add(jPanel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 180, 240));
 
@@ -1299,9 +1288,9 @@ public class UserMain extends javax.swing.JFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 560));
 
-        mainPanel.setBackground(new java.awt.Color(255, 255, 204));
+        mainPanel.setBackground(new java.awt.Color(153, 255, 153));
 
-        statusPanel.setBackground(new java.awt.Color(255, 255, 204));
+        statusPanel.setBackground(new java.awt.Color(153, 255, 153));
         statusPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -1440,7 +1429,7 @@ public class UserMain extends javax.swing.JFrame {
         jLabel21.setText("Booking to           :");
         jLabel21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel21);
-        jLabel21.setBounds(10, 110, 150, 30);
+        jLabel21.setBounds(10, 190, 150, 30);
 
         booking_to.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1448,26 +1437,31 @@ public class UserMain extends javax.swing.JFrame {
             }
         });
         bookingPanel.add(booking_to);
-        booking_to.setBounds(200, 110, 160, 30);
+        booking_to.setBounds(200, 190, 160, 30);
 
         jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel22.setText("Date                    :");
         jLabel22.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel22);
-        jLabel22.setBounds(10, 150, 150, 30);
+        jLabel22.setBounds(10, 110, 150, 30);
 
         jDateChooser2.setDateFormatString("yyyy-MM-dd");
         bookingPanel.add(jDateChooser2);
-        jDateChooser2.setBounds(200, 150, 160, 30);
+        jDateChooser2.setBounds(200, 110, 160, 30);
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel23.setText("Bus No                :");
         jLabel23.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         bookingPanel.add(jLabel23);
-        jLabel23.setBounds(10, 190, 150, 30);
+        jLabel23.setBounds(10, 150, 150, 30);
 
+        booking_busno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                booking_busnoActionPerformed(evt);
+            }
+        });
         bookingPanel.add(booking_busno);
-        booking_busno.setBounds(200, 190, 160, 30);
+        booking_busno.setBounds(200, 150, 160, 30);
 
         jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel24.setText("Time                   : ");
@@ -2256,9 +2250,32 @@ public class UserMain extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("tab2", jPanel21);
 
+        B_date_update.setLayout(null);
+
         B_from_update.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kegalle" }));
+        B_date_update.add(B_from_update);
+        B_from_update.setBounds(31, 16, 110, 20);
 
         jDateChooser4.setDateFormatString("yyyy-MM-dd");
+        B_date_update.add(jDateChooser4);
+        jDateChooser4.setBounds(31, 75, 110, 20);
+
+        B_date_update.add(B_to_update);
+        B_to_update.setBounds(31, 106, 110, 20);
+
+        B_no_update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                B_no_updateActionPerformed(evt);
+            }
+        });
+        B_date_update.add(B_no_update);
+        B_no_update.setBounds(31, 47, 110, 20);
+
+        B_date_update.add(B_time_update);
+        B_time_update.setBounds(31, 135, 110, 20);
+
+        B_date_update.add(B_name_update);
+        B_name_update.setBounds(31, 173, 110, 20);
 
         jButton28.setText("Save");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -2266,53 +2283,12 @@ public class UserMain extends javax.swing.JFrame {
                 jButton28ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout B_date_updateLayout = new javax.swing.GroupLayout(B_date_update);
-        B_date_update.setLayout(B_date_updateLayout);
-        B_date_updateLayout.setHorizontalGroup(
-            B_date_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(B_date_updateLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(B_date_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(B_date_updateLayout.createSequentialGroup()
-                        .addGroup(B_date_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(B_name_update, javax.swing.GroupLayout.Alignment.LEADING, 0, 82, Short.MAX_VALUE)
-                            .addComponent(B_time_update, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(B_no_update, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton28, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(B_date_updateLayout.createSequentialGroup()
-                        .addGroup(B_date_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(B_date_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(B_to_update, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(B_from_update, javax.swing.GroupLayout.Alignment.LEADING, 0, 82, Short.MAX_VALUE))
-                            .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 92, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        B_date_updateLayout.setVerticalGroup(
-            B_date_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(B_date_updateLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(B_from_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(B_to_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(jDateChooser4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(B_date_updateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(B_no_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton28, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(B_time_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(B_name_update, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        B_date_update.add(jButton28);
+        jButton28.setBounds(160, 106, 67, 23);
 
         jTabbedPane2.addTab("tab1", B_date_update);
 
-        jLabel38.setText("Passenger name   :");
+        jLabel38.setText("Passenger ID   :");
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -2326,20 +2302,16 @@ public class UserMain extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel19Layout.createSequentialGroup()
-                                    .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel32)
-                                        .addComponent(jLabel33))
-                                    .addGap(113, 113, 113))
-                                .addGroup(jPanel19Layout.createSequentialGroup()
-                                    .addComponent(jLabel31)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(booking_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jLabel34)
+                            .addGroup(jPanel19Layout.createSequentialGroup()
+                                .addComponent(jLabel31)
+                                .addGap(42, 42, 42)
+                                .addComponent(booking_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel38)
+                            .addComponent(jLabel32)
                             .addComponent(jLabel35)
-                            .addComponent(jLabel36)
-                            .addComponent(jLabel38))
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel33)
+                            .addComponent(jLabel36))
                         .addGap(31, 31, 31)
                         .addComponent(jTabbedPane2)))
                 .addContainerGap())
@@ -2353,17 +2325,17 @@ public class UserMain extends javax.swing.JFrame {
                         .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31)
                             .addComponent(booking_combobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel32)
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel33)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel34)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel35)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel34)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel33)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel36)
-                        .addGap(18, 18, 18)
+                        .addGap(27, 27, 27)
                         .addComponent(jLabel38))
                     .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -3149,15 +3121,6 @@ public class UserMain extends javax.swing.JFrame {
         jPanel48.add(left_at);
         left_at.setBounds(139, 165, 114, 20);
 
-        jButton54.setText("Search");
-        jButton54.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton54ActionPerformed(evt);
-            }
-        });
-        jPanel48.add(jButton54);
-        jButton54.setBounds(30, 200, 88, 23);
-
         jButton55.setText("Delete");
         jButton55.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -3166,15 +3129,6 @@ public class UserMain extends javax.swing.JFrame {
         });
         jPanel48.add(jButton55);
         jButton55.setBounds(190, 200, 88, 23);
-
-        jButton56.setText("OK");
-        jButton56.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton56ActionPerformed(evt);
-            }
-        });
-        jPanel48.add(jButton56);
-        jButton56.setBounds(260, 90, 60, 23);
 
         jTabbedPane7.addTab("tab3", jPanel48);
 
@@ -3243,7 +3197,7 @@ public class UserMain extends javax.swing.JFrame {
 
         jLabel88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
         jPanel36.add(jLabel88);
-        jLabel88.setBounds(0, 0, 860, 390);
+        jLabel88.setBounds(0, -10, 860, 400);
 
         javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
         jPanel33.setLayout(jPanel33Layout);
@@ -3258,7 +3212,7 @@ public class UserMain extends javax.swing.JFrame {
         );
         jPanel33Layout.setVerticalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 362, Short.MAX_VALUE)
+            .addGap(0, 372, Short.MAX_VALUE)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel33Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -3397,13 +3351,14 @@ public class UserMain extends javax.swing.JFrame {
         jPanel34.add(jButton35);
         jButton35.setBounds(610, 160, 100, 40);
 
+        jLabel58.setBackground(new java.awt.Color(153, 255, 153));
         jLabel58.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
         jPanel34.add(jLabel58);
         jLabel58.setBounds(0, 0, 810, 390);
 
         mainPanel.addTab("tab11", jPanel34);
 
-        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, 390));
+        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, 400));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -3709,8 +3664,14 @@ public class UserMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Insertion succesful");
             UpdateBookingPassengerID();//to add the new insert data into the booking panel passenger name combo box .this method wiil call and execute that operation
             UpdatePassengerID();//add the new insert data into the update panel passenger id combo box       
+            B_name_update.addItem(id_label.getText());
+            
             InvoiceNoPassenger();//After succesfull insertion we need to increment the invoice  
-                      
+           
+           
+            
+            passenger_name.setText("");
+            passenger_phoneno.setText("");
                          con.close();
                  
         }
@@ -3760,7 +3721,7 @@ public class UserMain extends javax.swing.JFrame {
             pstmt.setString(7,selectedpassenger);
             
             pstmt.executeUpdate();
-           JOptionPane.showMessageDialog(null, "isertion succesful");  
+           JOptionPane.showMessageDialog(null, "Insertion succesful");  
            UpdateBookingid();//to add the booking details to the updata panel booking id combo box
            InvoiceNo();//to increment the invoice number of the booking panel booking
           }
@@ -3784,6 +3745,7 @@ public class UserMain extends javax.swing.JFrame {
 
     private void booking_toActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booking_toActionPerformed
         // TODO add your handling code here:
+      
     }//GEN-LAST:event_booking_toActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
@@ -3906,7 +3868,11 @@ public class UserMain extends javax.swing.JFrame {
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
         // TODO add your handling code here:
         jTabbedPane2.setSelectedIndex(2);
-      BookingUpdate();
+         //B_no_update.removeAllItems();
+
+        // B_name_update.removeAllItems();
+        
+        
 
    
     }//GEN-LAST:event_jButton26ActionPerformed
@@ -4062,6 +4028,9 @@ public class UserMain extends javax.swing.JFrame {
            P_dob.setText("");
            P_gender.setText("");
            P_number.setText("");
+          
+           InvoiceNoPassenger() ;
+           
            con.close();
            
             jTabbedPane3.setSelectedIndex(0);
@@ -4105,6 +4074,8 @@ public class UserMain extends javax.swing.JFrame {
            
             
            con.close();
+           
+           InvoiceNo() ;
             jTabbedPane2.setSelectedIndex(0);
           }
           catch(Exception e)
@@ -4281,6 +4252,10 @@ public class UserMain extends javax.swing.JFrame {
             UpdateBookingTime( time1);//to add the time to the booking panel
             busno1.addItem(bus_number.getText());
             con.close();
+            
+            bus_number.setText("");
+            no_of_seats.setText("");
+        
         }
         catch(Exception e){
           JOptionPane.showMessageDialog(null, e);
@@ -4313,8 +4288,17 @@ public class UserMain extends javax.swing.JFrame {
             pstmt.executeUpdate();
             JOptionPane.showMessageDialog(null, "Insertion succesful");
             UpdateBusRouteNo();
-            
+            route_combobox.addItem(route_no.getText());
+            B_route_no_update.addItem(route_no.getText());
             con.close();
+
+           route_no.setText("");
+           start_from.setText("");
+           city_1.setText("");
+           city_2.setText("");
+           city_3.setText("");
+           city_4.setText("");
+        
         }
         catch(Exception e){
           JOptionPane.showMessageDialog(null, e);
@@ -4404,8 +4388,15 @@ public class UserMain extends javax.swing.JFrame {
           pstmt.setString(1,selectedbusno); 
           pstmt.executeUpdate();
            JOptionPane.showMessageDialog(null, "Record Deleted Successfully");  
-            int index = busno_combobox.getSelectedIndex();//declare int for catch index
+            
+            busno.removeItem(busno_combobox.getSelectedItem().toString()); 
+           booking_busno.removeItem(busno_combobox.getSelectedItem().toString());
+           busno1.removeItem(busno_combobox.getSelectedItem().toString());
+           B_no_update.removeItem(busno_combobox.getSelectedItem().toString());
+           
+           int index = busno_combobox.getSelectedIndex();//declare int for catch index
            busno_combobox.removeItemAt(index);//remove item by select item
+          
            
            B_seats.setText("");
            B_arrive.setText("");
@@ -4446,8 +4437,9 @@ public class UserMain extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             java.sql.Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system","root","1406");
          
-            String sql = "update Bus set Bus_BusNo = ?, Bus_No_Of_Seats = ?, Bus_Time_Of_Arrive = ?, Bus_Time_Of_Arrive = ? ,Bus_RouteNo =? where Bus_BusNo = ?"; 
+            String sql = "update Bus set Bus_BusNo = ?, Bus_No_Of_Seats = ?, Bus_Time_Of_Arrive = ?, Bus_Time_Of_Leave = ? ,Bus_RouteNo =? where Bus_BusNo = ?"; 
             PreparedStatement pstmt = con.prepareStatement(sql);
+            
      
             pstmt.setString(1,B_busno_update.getText());
             pstmt.setInt(2,Integer.parseInt(B_seats_update.getText()));
@@ -4486,10 +4478,30 @@ public class UserMain extends javax.swing.JFrame {
             pstmt.setString(5,selectedrouteno); 
             pstmt.setString(6,busno_combobox.getSelectedItem().toString());
             pstmt.executeUpdate();
+         
+            
+            //to udpate the changed value in the booking table
+           sql = "update booking set Booking_time = ? where Booking_BusNo = ?";
+           pstmt = con.prepareStatement(sql);
+           pstmt.setString(1,time1);
+           pstmt.setString(2,B_busno_update.getText());
+           pstmt.executeUpdate();
+            
+           //all these combo box need to update when the buss details get changed
+           busno.removeItem(busno_combobox.getSelectedItem().toString()); // These four lines is used to delete and update the relavent combo boxes
+           booking_busno.removeItem(busno_combobox.getSelectedItem().toString());
+           busno1.removeItem(busno_combobox.getSelectedItem().toString());
+           B_no_update.removeItem(busno_combobox.getSelectedItem().toString());
+          
+           busno.addItem(B_busno_update.getText());
+           booking_busno.addItem(B_busno_update.getText());
+           busno1.addItem(B_busno_update.getText());
+           B_no_update.addItem(B_busno_update.getText());
+           
            int index = busno_combobox.getSelectedIndex();//declare int for catch index
            busno_combobox.removeItemAt(index);
-           
            busno_combobox.addItem(B_busno_update.getText());
+           
            JOptionPane.showMessageDialog(null, "Record updated Successfully");  
             con.close();
            jTabbedPane5.setSelectedIndex(0);
@@ -4563,9 +4575,12 @@ public class UserMain extends javax.swing.JFrame {
           pstmt.setString(1,selectedrouteno); 
           pstmt.executeUpdate();
            JOptionPane.showMessageDialog(null, "Record Deleted Successfully");  
-            int index = route_combobox.getSelectedIndex();//declare int for catch index
+             B_route_no_update.removeItem(route_combobox.getSelectedItem().toString()); 
+           int index = route_combobox.getSelectedIndex();//declare int for catch index
            route_combobox.removeItemAt(index);//remove item by select item
            route_number.removeItem(selectedrouteno);
+          
+           
            R_from.setText("");
            R_city1.setText("");
            R_city2.setText("");
@@ -4611,20 +4626,24 @@ public class UserMain extends javax.swing.JFrame {
             pstmt.setString(7,route_combobox.getSelectedItem().toString());
             
             pstmt.executeUpdate();
-           int index = route_combobox.getSelectedIndex();//declare int for catch index
-           route_combobox.removeItemAt(index);
-           
-           route_combobox.addItem(R_route_update.getText());
-           
     
+            B_route_no_update.removeItem(route_combobox.getSelectedItem().toString());
+             B_route_no_update.addItem(R_route_update.getText());
+            
            route_number.removeItem(route_combobox.getSelectedItem().toString());
            
            route_number.addItem(R_route_update.getText());
-           
+                      
+           int index = route_combobox.getSelectedIndex();//declare int for catch index
+           route_combobox.removeItemAt(index);
+             route_combobox.addItem(R_route_update.getText());
+             
+             
            JOptionPane.showMessageDialog(null, "Record updated Successfully");  
-   
+         
             
             con.close();
+            jTabbedPane6.setSelectedIndex(0);
         }
         catch(Exception e){
           JOptionPane.showMessageDialog(null, e);
@@ -4691,63 +4710,79 @@ public class UserMain extends javax.swing.JFrame {
 
     private void busno1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busno1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_busno1ActionPerformed
-
-    private void statusidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusidActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_statusidActionPerformed
-
-    private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
-        // TODO add your handling code here:
-         statusid.removeAllItems();
+        statusid.removeAllItems();
+        jDateChooser3.setDate(java.sql.Date.valueOf(java.time.LocalDate.now()));
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
 
            
-          
-              String sql = "select Status_invoice from Status where Status_date = ? and Status_BusNo = ? ";
+           
+             String sql = "select Status_invoice from Status where Status_BusNo = ? and Status_date = ?";
            PreparedStatement pstmt = con.prepareStatement(sql);
-          
-           pstmt.setString(1,((JTextField)jDateChooser3.getDateEditor().getUiComponent()).getText());
-            pstmt.setString(2,busno1.getSelectedItem().toString());
+            
+            pstmt.setString(1,busno1.getSelectedItem().toString());
+            pstmt.setString(2,((JTextField)jDateChooser3.getDateEditor().getUiComponent()).getText());
             ResultSet rs = pstmt.executeQuery();
           
             
-            sql = "select Status_invoice from Status where Status_date = ? and Status_BusNo = ? ";
-            pstmt = con.prepareStatement(sql);
-            pstmt.setString(1,((JTextField)jDateChooser3.getDateEditor().getUiComponent()).getText());
-            pstmt.setString(2,busno1.getSelectedItem().toString());
-            ResultSet rs1 = pstmt.executeQuery();
-          
+            String combo_box1;
+           while(rs.next())
+           {
+              combo_box1 = rs.getString("Status_invoice");
+              statusid.addItem(combo_box1);
+              
+           }
 
 
-
-                                               
-            if(rs.next())
-            {                                
-
-                
-                while(rs1.next())
-                {
-                    String combo_box = rs1.getString("Status_invoice");//here Bus_Busno is actual column name of the table
-                    statusid.addItem(combo_box);//add into jcomboBox
-                }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Record not found");
-            }
-            
                      con.close();
         }
         catch(Exception e)
         {
             JOptionPane.showMessageDialog(null,e);
         }
-        
-    }//GEN-LAST:event_jButton54ActionPerformed
+    }//GEN-LAST:event_busno1ActionPerformed
+
+    private void statusidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusidActionPerformed
+        // TODO add your handling code here:
+                 arr_at.setText("");  
+                left_at.setText("");
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
+
+           
+           
+             String sql = "select Status_ArriveAt,Status_LeftAt from Status where  Status_invoice = ?";
+           PreparedStatement pstmt = con.prepareStatement(sql);
+            
+            pstmt.setString(1,statusid.getSelectedItem().toString());
+  
+            ResultSet rs = pstmt.executeQuery();
+          
+           
+            if(rs.next())
+            {
+                
+                
+                arr_at.setText(rs.getString("Status_ArriveAt"));
+                
+                left_at.setText(rs.getString("Status_LeftAt"));
+
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Record not found");
+            }
+
+                     con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_statusidActionPerformed
 
     private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton55ActionPerformed
         // TODO add your handling code here:
@@ -4773,6 +4808,7 @@ public class UserMain extends javax.swing.JFrame {
            arr_at.setText("");
            left_at.setText("");
            con.close();
+           InvoiceNoStatus() ;
            
            
           }
@@ -4783,37 +4819,110 @@ public class UserMain extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton55ActionPerformed
 
-    private void jButton56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton56ActionPerformed
+    private void booking_busnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_booking_busnoActionPerformed
         // TODO add your handling code here:
-                arr_at.setText("");
-        left_at.setText("");
+          
+        booking_to.removeAllItems();
+        booking_time.removeAllItems();
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
 
            
            
-             String sql = "select Status_ArriveAt,Status_LeftAt from Status where Status_invoice = ?";
+             String sql ="select Route_city1, Route_city2,Route_city3,Route_To,Bus_Time_Of_Arrive from Route, Bus where Bus_RouteNo = Route_RouteNO and Bus_BusNo = ?";
            PreparedStatement pstmt = con.prepareStatement(sql);
             
-            pstmt.setString(1,statusid.getSelectedItem().toString());
+            pstmt.setString(1,booking_busno.getSelectedItem().toString());
             ResultSet rs = pstmt.executeQuery();
-            if(rs.next())
-            {
-                arr_at.setText(rs.getString("Status_ArriveAt"));
-                
-                left_at.setText(rs.getString("Status_LeftAt"));
+            
+            
+            String combo_box1;
+            String combo_box2;
+            String combo_box3;
+            String combo_box4;
+            String combo_box5;
 
-                
-            }
+                  
+                    
+                    
+            while(rs.next())
+           {
+              combo_box1 = rs.getString("Route_city1");
+              booking_to.addItem(combo_box1);
+              
+              combo_box2 = rs.getString("Route_city2");
+              booking_to.addItem(combo_box2);
+              
+              combo_box3 = rs.getString("Route_city3");
+              booking_to.addItem(combo_box3);
+           
+              combo_box4 = rs.getString("Route_To");
+              booking_to.addItem(combo_box4);
+              
+                         
+              combo_box5 = rs.getString("Bus_Time_Of_Arrive");
+              booking_time.addItem(combo_box5);
+              
 
+           }
                      con.close();
         }
         catch(Exception e)
         {
             JOptionPane.showMessageDialog(null,e);
         }
-    }//GEN-LAST:event_jButton56ActionPerformed
+    }//GEN-LAST:event_booking_busnoActionPerformed
+
+    private void B_no_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_B_no_updateActionPerformed
+        // TODO add your handling code here:
+        B_to_update.removeAllItems();
+        B_time_update.removeAllItems();
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bus_management_system", "root","1406");
+
+           
+           
+             String sql ="select Route_city1, Route_city2,Route_city3,Route_To,Bus_Time_Of_Arrive from Route, Bus where Bus_RouteNo = Route_RouteNO and Bus_BusNo = ?";
+           PreparedStatement pstmt = con.prepareStatement(sql);
+            
+            pstmt.setString(1,B_no_update.getSelectedItem().toString());
+            ResultSet rs = pstmt.executeQuery();
+            
+            
+            String combo_box1;
+            String combo_box2;
+            String combo_box3;
+            String combo_box4;    
+            String combo_box5;        
+                    
+            while(rs.next())
+           {
+              combo_box1 = rs.getString("Route_city1");
+              B_to_update.addItem(combo_box1);
+              
+              combo_box2 = rs.getString("Route_city2");
+              B_to_update.addItem(combo_box2);
+              
+              combo_box3 = rs.getString("Route_city3");
+              B_to_update.addItem(combo_box3);
+              
+              combo_box4 = rs.getString("Route_To");
+              B_to_update.addItem(combo_box4);
+ 
+              combo_box5 = rs.getString("Bus_Time_Of_Arrive");
+              B_time_update.addItem(combo_box5);
+           
+           }
+                     con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
+    }//GEN-LAST:event_B_no_updateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4969,9 +5078,7 @@ public class UserMain extends javax.swing.JFrame {
     private javax.swing.JButton jButton51;
     private javax.swing.JButton jButton52;
     private javax.swing.JButton jButton53;
-    private javax.swing.JButton jButton54;
     private javax.swing.JButton jButton55;
-    private javax.swing.JButton jButton56;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;

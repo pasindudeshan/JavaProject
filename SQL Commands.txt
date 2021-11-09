@@ -1,0 +1,24 @@
+create database  bus_management_system;
+
+create table User(User_name varchar(25) not null,User_dob date not null, User_gender varchar(10) not null , User_phoneNo int(10) unique, User_position varchar(25) not null, User_address varchar(50) not null, User_username varchar(25) primary key, User_password varchar(15) not null);
+
+create table Passenger(Passenger_id varchar(25) primary key,Passenger_name varchar(25) NOT NULL, Passenger_dob date NOT NULL, Passenger_gender varchar(15) NOT NULL, Passenger_phoneNo int(10) UNIQUE);
+
+ create table Booking(Booking_invoiceid varchar(25),Booking_from varchar(25) NOT NULL,Booking_to varchar(25) NOT NULL,Booking_date date NOT NULL,Booking_BusNo varchar(15) NOT NULL,Booking_time time NOT NULL, Booking_buyer varchar(25) NOT NULL, primary key(Booking_invoiceid));
+
+create table Bus(Bus_BusNo varchar(15) PRIMARY KEY, Bus_No_Of_Seats int NOT NULL,Bus_Time_Of_Arrive time NOT NULL, Bus_Time_Of_Leave time NOT NULL, Bus_RouteNo varchar(15) NOT NULL);
+
+create table Status(Status_invoice varchar(25) primary key,Status_date date not null,Status_BusNo varchar(15) not null, Status_ArriveAt time not null, Status_LeftAt time not null);
+
+create table Route(Route_RouteNO varchar(15), Route_from varchar(25) NOT NULL, Route_city1 varchar(25), Route_city2 varchar(25), Route_city3 varchar(25), Route_To varchar(25) NOT NULL, PRIMARY KEY(Route_RouteNO));
+
+
+
+
+ALTER TABLE Booking ADD CONSTRAINT FK_BusNo FOREIGN KEY(Booking_BusNo) REFERENCES Bus(Bus_BusNo) ON UPDATE CASCADE;
+
+ALTER TABLE bus ADD CONSTRAINT FK_RouteNo FOREIGN KEY(Bus_RouteNo) REFERENCES Route(Route_RouteNO) ON UPDATE CASCADE;
+
+
+ALTER TABLE Booking ADD CONSTRAINT FK_Buyer FOREIGN KEY(Booking_Buyer) REFERENCES Passenger(Passenger_id) ON UPDATE CASCADE;
+

@@ -79,7 +79,7 @@ public class MainScreen extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 0, 102));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loading (1).png"))); // NOI18N
-        jButton1.setText("Reset");
+        jButton1.setText("Clear");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 51, 255), new java.awt.Color(153, 255, 255), new java.awt.Color(51, 102, 255), new java.awt.Color(102, 255, 255)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

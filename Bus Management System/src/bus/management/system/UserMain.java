@@ -1293,18 +1293,19 @@ public class UserMain extends javax.swing.JFrame {
         statusPanel.setBackground(new java.awt.Color(153, 255, 153));
         statusPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel18.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel18.setText("Status ID         : ");
-        jLabel18.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         statusPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 140, 30));
 
         jDateChooser1.setBackground(new java.awt.Color(51, 51, 255));
         jDateChooser1.setDateFormatString("yyyy-MM-dd");
         statusPanel.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 120, 30));
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel13.setText("Bus No     :");
-        jLabel13.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         statusPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, 30));
 
         busno.addActionListener(new java.awt.event.ActionListener() {
@@ -1314,14 +1315,16 @@ public class UserMain extends javax.swing.JFrame {
         });
         statusPanel.add(busno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 120, 30));
 
-        jLabel14.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel14.setText("Arrive At   :");
-        jLabel14.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         statusPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 140, 30));
 
-        jLabel15.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel15.setBackground(new java.awt.Color(51, 255, 51));
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(51, 0, 51));
         jLabel15.setText("Left At :");
-        jLabel15.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         statusPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 140, 30));
 
         JSpinner.DateEditor de = new JSpinner.DateEditor(jSpinner1,"HH:mm:ss");
@@ -1346,9 +1349,9 @@ public class UserMain extends javax.swing.JFrame {
         jButton18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         statusPanel.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 90, 40));
 
-        jLabel83.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jLabel83.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel83.setText("Date         : ");
-        jLabel83.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel83.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         statusPanel.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 140, 30));
 
         statuslabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -1356,6 +1359,7 @@ public class UserMain extends javax.swing.JFrame {
         statuslabel.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         statusPanel.add(statuslabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 150, 30));
 
+        jLabel89.setForeground(new java.awt.Color(0, 51, 51));
         jLabel89.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
         statusPanel.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 390));
 
@@ -1415,9 +1419,9 @@ public class UserMain extends javax.swing.JFrame {
 
         bookingPanel.setLayout(null);
 
-        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel20.setText("Booking from       :");
-        jLabel20.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel20.setText("Booking from    :");
+        jLabel20.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         bookingPanel.add(jLabel20);
         jLabel20.setBounds(10, 70, 150, 30);
 
@@ -1425,9 +1429,10 @@ public class UserMain extends javax.swing.JFrame {
         bookingPanel.add(booking_from);
         booking_from.setBounds(200, 70, 160, 30);
 
-        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel21.setText("Booking to           :");
-        jLabel21.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel21.setText("Booking to        :");
+        jLabel21.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         bookingPanel.add(jLabel21);
         jLabel21.setBounds(10, 190, 150, 30);
 
@@ -1439,9 +1444,9 @@ public class UserMain extends javax.swing.JFrame {
         bookingPanel.add(booking_to);
         booking_to.setBounds(200, 190, 160, 30);
 
-        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel22.setText("Date                    :");
-        jLabel22.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel22.setText("Date                   :");
+        jLabel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         bookingPanel.add(jLabel22);
         jLabel22.setBounds(10, 110, 150, 30);
 
@@ -1449,9 +1454,9 @@ public class UserMain extends javax.swing.JFrame {
         bookingPanel.add(jDateChooser2);
         jDateChooser2.setBounds(200, 110, 160, 30);
 
-        jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel23.setText("Bus No                :");
-        jLabel23.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel23.setText("Bus No               :");
+        jLabel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         bookingPanel.add(jLabel23);
         jLabel23.setBounds(10, 150, 150, 30);
 
@@ -1463,21 +1468,23 @@ public class UserMain extends javax.swing.JFrame {
         bookingPanel.add(booking_busno);
         booking_busno.setBounds(200, 150, 160, 30);
 
-        jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel24.setText("Time                   : ");
-        jLabel24.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Time                  : ");
+        jLabel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         bookingPanel.add(jLabel24);
         jLabel24.setBounds(10, 230, 150, 30);
 
         bookingPanel.add(booking_time);
         booking_time.setBounds(200, 230, 160, 30);
 
-        jLabel25.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel25.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel25.setText("Passenger ID   :");
-        jLabel25.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel25.setBackground(new java.awt.Color(153, 153, 0));
+        jLabel25.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Passenger ID      :");
+        jLabel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         bookingPanel.add(jLabel25);
-        jLabel25.setBounds(10, 270, 150, 30);
+        jLabel25.setBounds(10, 280, 150, 30);
 
         booking_passenger.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1485,7 +1492,7 @@ public class UserMain extends javax.swing.JFrame {
             }
         });
         bookingPanel.add(booking_passenger);
-        booking_passenger.setBounds(200, 270, 160, 30);
+        booking_passenger.setBounds(200, 280, 160, 30);
 
         jButton9.setText("Submit");
         jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -1495,11 +1502,11 @@ public class UserMain extends javax.swing.JFrame {
             }
         });
         bookingPanel.add(jButton9);
-        jButton9.setBounds(410, 110, 110, 40);
+        jButton9.setBounds(430, 230, 110, 40);
 
-        jLabel37.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel37.setText("Invoice Number");
-        jLabel37.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jLabel37.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel37.setText("Invoice Number :");
+        jLabel37.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 0), 2));
         bookingPanel.add(jLabel37);
         jLabel37.setBounds(10, 20, 150, 40);
 
@@ -3197,27 +3204,23 @@ public class UserMain extends javax.swing.JFrame {
 
         jLabel88.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Webp.net-resizeimage.jpg"))); // NOI18N
         jPanel36.add(jLabel88);
-        jLabel88.setBounds(0, -10, 860, 400);
+        jLabel88.setBounds(0, -10, 860, 410);
 
         javax.swing.GroupLayout jPanel33Layout = new javax.swing.GroupLayout(jPanel33);
         jPanel33.setLayout(jPanel33Layout);
         jPanel33Layout.setHorizontalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 928, Short.MAX_VALUE)
+            .addGap(0, 948, Short.MAX_VALUE)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel33Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, 928, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 10, Short.MAX_VALUE)))
         );
         jPanel33Layout.setVerticalGroup(
             jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 372, Short.MAX_VALUE)
+            .addGap(0, 382, Short.MAX_VALUE)
             .addGroup(jPanel33Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel33Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel36, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel36, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
         );
 
         mainPanel.addTab("tab10", jPanel33);
@@ -3358,7 +3361,7 @@ public class UserMain extends javax.swing.JFrame {
 
         mainPanel.addTab("tab11", jPanel34);
 
-        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, 400));
+        jPanel1.add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, -1, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -3370,7 +3373,7 @@ public class UserMain extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
         );
 
         pack();
